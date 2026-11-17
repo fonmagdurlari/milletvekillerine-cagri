@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fon Mağdurları Platformu — TBMM Tek Tıkla E-Posta Kampanyası</title>
+    <title>Fon Mağdurları — TBMM Tek Tıkla E-Posta Kampanyası</title>
     <style>
         :root {
             --bg: #f1f5f9;
@@ -43,7 +43,7 @@
         }
 
         .container {
-            max-width: 820px;
+            max-width: 840px;
             margin: 0 auto;
         }
 
@@ -160,6 +160,7 @@
             padding: 8px 12px;
             border-radius: 8px;
             cursor: pointer;
+            min-height: 38px;
         }
 
         .btn-reset:hover {
@@ -448,11 +449,11 @@
     <header class="header">
         <div class="container">
             <div class="header-top">
-                <span class="badge-brand"><span class="dot"></span> Fon Mağdurları Platformu</span>
+                <span class="badge-brand"><span class="dot"></span> Fon Mağdurları</span>
                 <span id="summaryBadge" class="badge-count">558 Milletvekili &bull; 19 Grup</span>
             </div>
             <h1>TBMM Milletvekillerine Tek Tıkla E-Posta Gönder</h1>
-            <p>Tüm milletvekilleri telefonunuzun mail uygulamasında hata vermemesi için 30'ar kişilik 19 güvenli BCC grubuna ayrılmıştır. Sırayla her gruba tek tıkla gönderebilirsiniz.</p>
+            <p>Tüm milletvekillerine tek tıkla e-posta göndermek için aşağıdaki 19 gruba sırayla tıklayın.</p>
         </div>
     </header>
 
@@ -482,7 +483,7 @@
             <section class="petition-card" aria-label="Gönderilecek Standart Dilekçe Metni">
                 <div class="petition-header">
                     <h2>Gönderilecek Standart Dilekçe Metni</h2>
-                    <button type="button" id="copyFullBtn" class="btn-copy-full">Tam Metni Kopyala</button>
+                    <button type="button" id="copyFullBtn" class="btn-copy-full">Metni Kopyala</button>
                 </div>
                 <div class="petition-body">
                     <div class="subject-box">
@@ -518,7 +519,7 @@ Siz değerli Milletvekilimizden talebimiz;
 - TBMM Plan ve Bütçe Komisyonu ile Genel Kurul çalışmalarında, tüm tasfiye fonlarında "güncel fon pay değeri" sınırının kaldırılarak vatandaşların gerçek Net Yatırım Tutarlarının (1 Milyon TL'ye kadar olan net anaparanın) eksiksiz ödenmesi için yasal düzenleme girişiminde bulunmanızdır.
 
 Saygılarımızla,
-Fon Mağdurları Platformu</div>
+Fon Mağdurları</div>
                 </div>
             </section>
 
@@ -539,17 +540,17 @@ Fon Mağdurları Platformu</div>
     </main>
 
     <footer class="footer">
-        Fon Mağdurları Platformu &bull; TBMM Sivil Dayanışma Kampanyası
+        Fon Mağdurları &bull; TBMM E-Posta Kampanyası
     </footer>
 
     <script>
         (function () {
             "use strict";
 
-            var SUBJECT = 'TBMM Gündemine Arz: Yatırım Fonları Mağduriyeti ve "Net Yatırım Tutarı (NYT)" Gerçeği Hk.';
+            var FULL_SUBJECT = 'TBMM Gündemine Arz: Yatırım Fonları Mağduriyeti ve "Net Yatırım Tutarı (NYT)" Gerçeği Hk.';
 
-            // mailto URI toplam uzunluğunu 1.800 karakterin altında tutmak için özlü e-posta gövdesi
-            var SHORT_BODY = [
+            var MAILTO_SUBJECT = "TBMM Gündemine Arz: Yatırım Fonları Mağduriyeti ve Net Yatırım Tutarı (NYT) Gerçeği Hk.";
+            var MAILTO_BODY = [
                 "Sayın Milletvekilim,",
                 "",
                 "455 binden fazla yatırım fonu mağduru adına yazıyoruz. 1 milyon TL'ye kadar Net Yatırım Tutarı (NYT) ödeneceği açıklanmışken, SPK/MKK'nın 'güncel fon pay değeri' sınırı nedeniyle anaparamızın çok küçük kırıntıları ödenmiştir:",
@@ -563,7 +564,7 @@ Fon Mağdurları Platformu</div>
                 "Bakan Mehmet Şimşek'in 'NYT ödendi' açıklaması gerçeği yansıtmamaktadır. TBMM'de yazılı soru önergesi vermenizi ve güncel değer sınırının kaldırılarak gerçek NYT anaparamızın (1 Milyon TL'ye kadar) ödenmesi için yasal düzenleme yapmanızı arz ederiz.",
                 "",
                 "Saygılarımızla,",
-                "Fon Mağdurları Platformu"
+                "Fon Mağdurları"
             ].join("\n");
 
             var RAW_EMAILS = [
@@ -625,12 +626,25 @@ Fon Mağdurları Platformu</div>
                 "yucel.bulut@tbmm.gov.tr", "adil.karaismailoglu@tbmm.gov.tr", "mustafa.sen@tbmm.gov.tr", "yilmaz.buyukaydin@tbmm.gov.tr", "vehbi.koc@tbmm.gov.tr", "sibel.suicmez@tbmm.gov.tr", "yavuz.aydin@tbmm.gov.tr", "ayten.kordu@tbmm.gov.tr", "butcekom@tbmm.gov.tr", "ozelkalem@tbmm.gov.tr"
             ];
 
-            // Tekilleştirme
+            // %100 saf ASCII doğrulama ve tekilleştirme
+            function toPureAsciiEmail(email) {
+                return String(email || "")
+                    .replace(/ç/g, "c").replace(/Ç/g, "c")
+                    .replace(/ğ/g, "g").replace(/Ğ/g, "g")
+                    .replace(/ı/g, "i").replace(/İ/g, "i")
+                    .replace(/ö/g, "o").replace(/Ö/g, "o")
+                    .replace(/ş/g, "s").replace(/Ş/g, "s")
+                    .replace(/ü/g, "u").replace(/Ü/g, "u")
+                    .toLowerCase()
+                    .replace(/[^a-z0-9@._-]/g, "")
+                    .trim();
+            }
+
             var UNIQUE_EMAILS = [];
             var seen = {};
             for (var i = 0; i < RAW_EMAILS.length; i++) {
-                var addr = RAW_EMAILS[i].toLowerCase().trim();
-                if (addr && !seen[addr]) {
+                var addr = toPureAsciiEmail(RAW_EMAILS[i]);
+                if (addr && addr.indexOf("@") > 0 && !seen[addr]) {
                     seen[addr] = true;
                     UNIQUE_EMAILS.push(addr);
                 }
@@ -642,15 +656,17 @@ Fon Mağdurları Platformu</div>
             for (var start = 0; start < UNIQUE_EMAILS.length; start += GROUP_SIZE) {
                 var slice = UNIQUE_EMAILS.slice(start, start + GROUP_SIZE);
                 var groupId = Math.floor(start / GROUP_SIZE) + 1;
+                var rangeStart = start + 1;
+                var rangeEnd = start + slice.length;
                 GROUPS.push({
                     id: groupId,
-                    title: groupId + ". Grup (" + slice.length + " Milletvekili)",
+                    title: groupId + ". Grup (" + rangeStart + "-" + rangeEnd + ". Vekiller)",
                     count: slice.length,
                     bcc: slice.join(",")
                 });
             }
 
-            var STORAGE_KEY = "tbmm_fon_magdurlari_sent_v4";
+            var STORAGE_KEY = "tbmm_fon_magdurlari_sent_v5";
             var sentList = [];
             try {
                 var stored = localStorage.getItem(STORAGE_KEY);
@@ -682,19 +698,19 @@ Fon Mağdurları Platformu</div>
                 }, 2600);
             }
 
-            function copyToClipboard(text, successMessage) {
+            function copyToClipboard(text, successMessage, silent) {
                 if (navigator.clipboard && window.isSecureContext) {
                     navigator.clipboard.writeText(text).then(function () {
-                        showToast(successMessage);
+                        if (!silent) showToast(successMessage);
                     }).catch(function () {
-                        fallbackCopy(text, successMessage);
+                        fallbackCopy(text, successMessage, silent);
                     });
                 } else {
-                    fallbackCopy(text, successMessage);
+                    fallbackCopy(text, successMessage, silent);
                 }
             }
 
-            function fallbackCopy(text, successMessage) {
+            function fallbackCopy(text, successMessage, silent) {
                 var area = document.createElement("textarea");
                 area.value = text;
                 area.setAttribute("readonly", "");
@@ -704,9 +720,9 @@ Fon Mağdurları Platformu</div>
                 area.select();
                 try {
                     document.execCommand("copy");
-                    showToast(successMessage);
+                    if (!silent) showToast(successMessage);
                 } catch (err) {
-                    showToast("Kopyalama başarısız oldu.");
+                    if (!silent) showToast("Kopyalama başarısız oldu.");
                 }
                 document.body.removeChild(area);
             }
@@ -715,15 +731,14 @@ Fon Mağdurları Platformu</div>
                 var container = document.getElementById("groupsContainer");
                 if (!container) return;
 
-                var encodedSubject = encodeURIComponent(SUBJECT);
-                var encodedBody = encodeURIComponent(SHORT_BODY);
+                var encodedSubject = encodeURIComponent(MAILTO_SUBJECT);
+                var encodedBody = encodeURIComponent(MAILTO_BODY);
 
                 var html = "";
                 for (var i = 0; i < GROUPS.length; i++) {
                     var grp = GROUPS[i];
                     var isSent = sentList.indexOf(grp.id) !== -1;
-                    var encodedBcc = encodeURIComponent(grp.bcc);
-                    var mailtoHref = "mailto:?bcc=" + encodedBcc + "&subject=" + encodedSubject + "&body=" + encodedBody;
+                    var mailtoHref = "mailto:?bcc=" + grp.bcc + "&subject=" + encodedSubject + "&body=" + encodedBody;
 
                     html += '<div class="group-card' + (isSent ? ' is-sent' : '') + '">' +
                         '<div class="group-meta">' +
@@ -769,6 +784,8 @@ Fon Mağdurları Platformu</div>
                         saveState();
                         renderGroups();
                     }
+                    var fullLetter = document.getElementById("fullLetterText").textContent;
+                    copyToClipboard(fullLetter, "", true);
                     return;
                 }
 
@@ -777,7 +794,7 @@ Fon Mağdurları Platformu</div>
                     var copyId = parseInt(copyBtn.getAttribute("data-copy-group"), 10);
                     for (var i = 0; i < GROUPS.length; i++) {
                         if (GROUPS[i].id === copyId) {
-                            copyToClipboard(GROUPS[i].bcc, "Kopyalandı ✓ (" + GROUPS[i].count + " adres)");
+                            copyToClipboard(GROUPS[i].bcc, "Kopyalandı ✓ (" + GROUPS[i].count + " adres)", false);
                             break;
                         }
                     }
@@ -793,8 +810,8 @@ Fon Mağdurları Platformu</div>
 
             document.getElementById("copyFullBtn").addEventListener("click", function () {
                 var fullLetter = document.getElementById("fullLetterText").textContent;
-                var combined = "Konu: " + SUBJECT + "\n\n" + fullLetter;
-                copyToClipboard(combined, "Kopyalandı ✓ (Konu + Tam Metin)");
+                var combined = "Konu: " + FULL_SUBJECT + "\n\n" + fullLetter;
+                copyToClipboard(combined, "Kopyalandı ✓ (Konu + Tam Metin)", false);
             });
 
             document.getElementById("shareWaBtn").addEventListener("click", function () {
@@ -809,7 +826,7 @@ Fon Mağdurları Platformu</div>
             });
 
             document.getElementById("copyLinkBtn").addEventListener("click", function () {
-                copyToClipboard(window.location.href, "Kopyalandı ✓ (Sayfa Linki)");
+                copyToClipboard(window.location.href, "Kopyalandı ✓ (Sayfa Linki)", false);
             });
         })();
     </script>
