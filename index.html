@@ -1,13 +1,11 @@
-```html
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fon Mağdurları TBMM E-Posta Kampanyası - Tek Tıkla Sesini Duyur</title>
-    <!-- Tailwind CSS -->
+    <title>Fon Mağdurları Platformu - TBMM Tek Tıkla E-Posta Kampanyası</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -16,743 +14,457 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        navy: {
-                            800: '#1e293b',
-                            900: '#0f172a',
-                            950: '#090d16',
-                        },
-                        crimson: {
-                            600: '#dc2626',
-                            700: '#b91c1c',
-                        }
+                        sans: ['Inter', 'sans-serif']
                     }
                 }
             }
-        }
+        };
     </script>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-crimson-600 selection:text-white">
+<body class="bg-slate-100 text-slate-900 font-sans antialiased">
 
-    <!-- Bildirim Toast Mesajı (alert() yerine kullanılır) -->
-    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
-        <div class="bg-navy-900 text-white px-5 py-3.5 rounded-xl shadow-2xl border border-slate-700 flex items-center gap-3">
-            <span class="flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-sm">✓</span>
-            <span id="toast-message" class="text-sm font-medium">Kopyalandı!</span>
+    <!-- Bildirim Kutusu -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="bg-slate-900 text-white px-4 py-3 rounded-xl shadow-xl border border-slate-700 flex items-center gap-2.5 text-sm font-semibold">
+            <span class="text-emerald-400">✓</span>
+            <span id="toastText">Kopyalandı!</span>
         </div>
     </div>
 
-    <!-- Üst Bilgi Çubuğu -->
-    <div class="bg-crimson-700 text-white text-xs sm:text-sm py-2 px-4 text-center font-medium">
-        📢 455.000+ Yatırımcının Ortak Sesi: "Güncel Portföy Değeri" İllüzyonuna Son Verilsin, 12 Ekim'de Söz Verilen ANAPARA Ödensin!
-    </div>
-
-    <!-- Hero / Başlık Bölümü -->
-    <header class="bg-gradient-to-br from-navy-950 via-navy-900 to-slate-900 text-white border-b border-slate-800">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-crimson-600/20 border border-crimson-500/40 text-crimson-300 text-xs font-semibold mb-4">
-                <span class="w-2 h-2 rounded-full bg-crimson-500 animate-pulse"></span>
-                TBMM Sivil İnisiyatif & Dilekçe Hareketi
+    <!-- Kompakt Üst Başlık -->
+    <header class="bg-slate-950 text-white border-b border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 py-6 sm:py-8">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-600/20 border border-red-500/40 text-red-300 text-xs font-bold">
+                    <span class="w-2 h-2 rounded-full bg-red-500"></span>
+                    Fon Mağdurları Platformu
+                </span>
+                <span id="totalMpBadge" class="text-xs font-semibold text-slate-300 bg-slate-800 px-3 py-1 rounded-full">
+                    550+ Milletvekili &bull; 7 Grup
+                </span>
             </div>
-            <h1 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-4">
-                Fon Mağdurları TBMM E-Posta Kampanyası: <span class="text-red-400">Tek Tıkla Sesini Duyur</span>
+            <h1 class="text-xl sm:text-3xl font-extrabold tracking-tight">
+                TBMM Milletvekillerine Tek Tıkla E-Posta Gönder
             </h1>
-            <p class="text-slate-300 text-base sm:text-lg max-w-3xl leading-relaxed mb-8">
-                "377 bin kişi Net Yatırım Tutarını (NYT) aldı" söylemiyle kamuoyuna sunulan tablonun aksine; <strong>THF (%29), TLY (%11), DOH (%26) ve DFI (%3)</strong> yatırımcıları anaparalarının büyük kısmını kaybetmiş, <strong>TMV</strong> yatırımcıları ise belirsizliğe terk edilmiştir. <strong>Anayasa Madde 125</strong> ve <strong>YTM güvencesi</strong> kapsamında tam anapara ödemesi için 5 ayrı grup halinde ~430 milletvekiline tek tıkla ulaşın.
+            <p class="text-slate-300 text-xs sm:text-sm mt-1.5 leading-relaxed">
+                Spam engeline takılmamak için 550'den fazla milletvekili 7 güvenli gizli alıcı (BCC) grubuna bölünmüştür. Sırayla tüm gruplara tek tıkla gönderebilirsiniz.
             </p>
-
-            <!-- Hızlı İstatistik Kartları -->
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4">
-                    <div class="text-slate-400 text-xs font-medium uppercase tracking-wider mb-1">Etkilenen Kitle</div>
-                    <div class="text-xl sm:text-2xl font-extrabold text-white">455.000+</div>
-                    <div class="text-xs text-slate-400 mt-1">Mağdur Yatırımcı</div>
-                </div>
-                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4">
-                    <div class="text-slate-400 text-xs font-medium uppercase tracking-wider mb-1">12 Ekim Vaadi</div>
-                    <div class="text-xl sm:text-2xl font-extrabold text-emerald-400">1 Milyon TL</div>
-                    <div class="text-xs text-slate-400 mt-1">Tam Anapara Sözü</div>
-                </div>
-                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4">
-                    <div class="text-slate-400 text-xs font-medium uppercase tracking-wider mb-1">Gerçekleşen Ödeme</div>
-                    <div class="text-xl sm:text-2xl font-extrabold text-red-400">%3 - %29</div>
-                    <div class="text-xs text-slate-400 mt-1">Eritilmiş Pay Değeri</div>
-                </div>
-                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4">
-                    <div class="text-slate-400 text-xs font-medium uppercase tracking-wider mb-1">Kampanya Hedefi</div>
-                    <div id="heroTargetCount" class="text-xl sm:text-2xl font-extrabold text-amber-400">550+ Vekil</div>
-                    <div id="heroBatchInfo" class="text-xs text-slate-400 mt-1">7 Güvenli Gönderim Grubu</div>
-                </div>
-            </div>
         </div>
     </header>
 
-    <!-- Ana İçerik Alanı -->
-    <main class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-8">
+    <!-- Ana İçerik -->
+    <main class="max-w-4xl mx-auto px-4 py-6 sm:py-8 space-y-6">
 
-        <!-- Adım 1: Kişiselleştirme Formu (İsteğe Bağlı) -->
+        <!-- İlerleme Çubuğu -->
+        <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-200 flex items-center justify-between gap-4">
+            <div class="flex-1">
+                <div class="flex items-center justify-between text-xs sm:text-sm font-bold text-slate-800 mb-1.5">
+                    <span>Gönderim İlerlemesi</span>
+                    <span id="progressText" class="text-emerald-700">0 / 7 Grup Tamamlandı</span>
+                </div>
+                <div class="w-full bg-slate-200 rounded-full h-2.5 overflow-hidden">
+                    <div id="progressBar" class="bg-emerald-600 h-2.5 rounded-full transition-all duration-300" style="width: 0%"></div>
+                </div>
+            </div>
+            <button type="button" id="resetBtn" class="text-xs font-semibold text-slate-500 hover:text-red-600 underline shrink-0 px-2 py-1">
+                Sıfırla
+            </button>
+        </div>
+
+        <!-- 7 Grup Gönderim Kartları (Sayfa açılır açılmaz en üstte) -->
+        <section id="groupsList" class="space-y-3.5" aria-label="Milletvekili Gönderim Grupları">
+            <!-- JS ile anında doldurulur -->
+        </section>
+
+        <!-- Standart E-Posta Metni (Her zaman görünür, açılır-kapanır değil) -->
         <section class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-            <div class="bg-slate-900 text-white px-5 sm:px-6 py-4 flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                    <span class="flex items-center justify-center w-7 h-7 rounded-lg bg-crimson-600 text-white font-bold text-sm">1</span>
-                    <h2 class="font-bold text-base sm:text-lg">Mektubunu Kişiselleştir (İsteğe Bağlı)</h2>
-                </div>
-                <span class="text-xs text-slate-300 bg-slate-800 px-2.5 py-1 rounded-full">Boş bırakılabilir</span>
+            <div class="bg-slate-900 text-white px-5 py-3.5 flex items-center justify-between">
+                <h2 class="font-bold text-sm sm:text-base">Gönderilecek Standart Dilekçe Metni</h2>
+                <span class="text-xs text-slate-300">Otomatik eklenir</span>
             </div>
-            
-            <div class="p-5 sm:p-6">
-                <p class="text-sm text-slate-600 mb-5">
-                    Aşağıdaki alanları doldurursanız e-posta metni otomatik olarak sizin bilgilerinizle güncellenir. Doldurmak istemezseniz doğrudan <strong>"Fon Mağduru Vatandaş"</strong> imzasıyla gönderim yapabilirsiniz.
-                </p>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                    <div>
-                        <label for="userName" class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">Adınız Soyadınız</label>
-                        <input type="text" id="userName" placeholder="Örn: Ahmet Yılmaz (Boşsa: Fon Mağduru Vatandaş)" 
-                            class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-navy-900 focus:border-transparent transition">
+            <div class="p-5 space-y-4">
+                <!-- Konu -->
+                <div class="bg-slate-50 rounded-xl p-3.5 border border-slate-200">
+                    <div class="flex items-center justify-between gap-2 mb-1.5">
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-500">E-Posta Konusu</span>
+                        <button type="button" id="copySubjectBtn" class="text-xs font-bold bg-white hover:bg-slate-100 text-slate-800 px-3 py-1.5 rounded-lg border border-slate-300 shadow-sm transition">
+                            Konuyu Kopyala
+                        </button>
                     </div>
-                    <div>
-                        <label for="userCity" class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">Şehir</label>
-                        <input type="text" id="userCity" placeholder="Örn: İstanbul / Ankara / Niğde" 
-                            class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-navy-900 focus:border-transparent transition">
-                    </div>
+                    <p id="subjectDisplay" class="text-xs sm:text-sm font-bold text-slate-900"></p>
                 </div>
 
-                <div>
-                    <label for="userFundDetail" class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">Yatırım Yapılan Fon &amp; Kayıp Detayınız (İsteğe Bağlı)</label>
-                    <textarea id="userFundDetail" rows="2" placeholder="Örn: THF fonunda 1 Milyon TL anaparama karşılık sadece 290 bin TL (%29,04) ödendi; TLY, DOH, DFI ve TMV mağduriyetleri sürüyor." 
-                        class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-navy-900 focus:border-transparent transition"></textarea>
-                </div>
-
-                <!-- Canlı Önizleme Aç/Kapa -->
-                <div class="mt-5 pt-4 border-t border-slate-100">
-                    <button type="button" id="togglePreviewBtn" aria-expanded="false" aria-controls="previewContainer" class="w-full sm:w-auto inline-flex items-center justify-between sm:justify-start gap-2.5 px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200/80 text-sm font-semibold text-navy-900 hover:text-crimson-600 transition cursor-pointer select-none">
-                        <span class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-crimson-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
-                            <span id="togglePreviewLabel">Gönderilecek E-Posta Metnini Önizle & Kopyala</span>
-                        </span>
-                        <svg id="previewChevron" class="w-4 h-4 transform transition-transform duration-200 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-
-                    <div id="previewContainer" style="display: none;" class="mt-4 space-y-4">
-                        <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
-                            <div class="flex items-center justify-between gap-2 mb-2">
-                                <span class="text-xs font-bold uppercase text-slate-500">E-Posta Konusu:</span>
-                                <button type="button" onclick="copyText('subject')" class="text-xs bg-white hover:bg-slate-100 text-slate-700 font-semibold px-3 py-1.5 rounded-lg border border-slate-300 shadow-sm transition">
-                                    Konuyu Kopyala
-                                </button>
-                            </div>
-                            <p id="previewSubject" class="text-sm font-semibold text-navy-900"></p>
-                        </div>
-
-                        <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
-                            <div class="flex items-center justify-between gap-2 mb-2">
-                                <span class="text-xs font-bold uppercase text-slate-500">Tam Mektup Metni (Gmail Web & Manuel Gönderim):</span>
-                                <button type="button" onclick="copyText('fullBody')" class="text-xs bg-navy-900 hover:bg-navy-800 text-white font-semibold px-3 py-1.5 rounded-lg shadow-sm transition">
-                                    Tam Metni Kopyala
-                                </button>
-                            </div>
-                            <pre id="previewFullBody" class="text-xs sm:text-sm text-slate-700 whitespace-pre-wrap font-sans leading-relaxed max-h-96 overflow-y-auto pr-2"></pre>
-                        </div>
+                <!-- Metin -->
+                <div class="bg-slate-50 rounded-xl p-3.5 border border-slate-200">
+                    <div class="flex items-center justify-between gap-2 mb-2">
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-500">E-Posta İçeriği</span>
+                        <button type="button" id="copyBodyBtn" class="text-xs font-bold bg-slate-900 hover:bg-slate-800 text-white px-3 py-1.5 rounded-lg shadow-sm transition">
+                            Metni Kopyala
+                        </button>
                     </div>
+                    <div id="bodyDisplay" class="text-xs sm:text-sm text-slate-700 whitespace-pre-line leading-relaxed max-h-96 overflow-y-auto pr-1"></div>
                 </div>
             </div>
         </section>
 
-        <!-- Adım 2: Dinamik Gruplar Halinde Tek Tıkla Gönderim -->
-        <section class="space-y-4">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white p-5 rounded-2xl shadow-sm border border-slate-200">
-                <div class="flex items-center gap-3">
-                    <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-crimson-600 text-white font-bold text-sm shrink-0">2</span>
-                    <div>
-                        <h2 id="step2Heading" class="font-bold text-lg text-navy-900">7 Grup Halinde Milletvekillerine Gönder</h2>
-                        <p class="text-xs sm:text-sm text-slate-600">Gmail ve TBMM spam filtrelerine takılmamak için vekiller 80'er kişilik güvenli BCC gruplarına bölünmüştür.</p>
-                    </div>
-                </div>
-                <div class="flex items-center gap-3 bg-slate-100 px-4 py-2 rounded-xl self-start sm:self-center">
-                    <span class="text-xs font-semibold text-slate-600">İlerleme:</span>
-                    <span id="progressBadge" class="text-sm font-extrabold text-navy-900">0 / 7 Grup</span>
-                    <button type="button" onclick="resetProgress()" title="İlerlemeyi Sıfırla" class="text-xs text-slate-400 hover:text-crimson-600 underline ml-1">Sıfırla</button>
-                </div>
+        <!-- Paylaşım Alanı -->
+        <section class="bg-slate-900 text-white rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+                <h2 class="font-bold text-base">Diğer Mağdurlarla Paylaş</h2>
+                <p class="text-xs text-slate-300 mt-0.5">WhatsApp ve X gruplarında paylaşarak katılımı artırın.</p>
             </div>
-
-            <!-- İlerleme Çubuğu -->
-            <div class="w-full bg-slate-200 rounded-full h-2.5 overflow-hidden">
-                <div id="progressBarFill" class="bg-emerald-600 h-2.5 rounded-full transition-all duration-300" style="width: 0%"></div>
-            </div>
-
-            <!-- İpucu Kutusu -->
-            <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 flex items-start gap-3 text-xs sm:text-sm text-amber-900">
-                <span class="text-lg leading-none">💡</span>
-                <div>
-                    <strong>Gönderim İpucu:</strong> Bilgisayarda veya tarayıcıda <strong>"Gmail Web ile Aç"</strong> butonu uzun metnin tamamını otomatik doldurur. Telefondaki yerleşik mail uygulaması için ise URL sınırına takılmayan özlü metni kullanan <strong>"Mail Uygulamasıyla Aç"</strong> butonunu kullanabilirsiniz. Her iki durumda da adresler gizli (BCC) olarak eklenir.
-                </div>
-            </div>
-
-            <!-- Grup Kartları Container -->
-            <div id="batchesContainer" class="grid grid-cols-1 gap-4">
-                <!-- JavaScript ile dinamik oluşturulacak -->
-            </div>
-        </section>
-
-        <!-- Adım 3: Kampanyayı Yay / Paylaş -->
-        <section class="bg-gradient-to-r from-navy-900 to-slate-800 text-white rounded-2xl p-6 sm:p-8 shadow-md">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
-                <div class="space-y-2 max-w-xl">
-                    <h2 class="text-xl sm:text-2xl font-bold">Diğer Fon Mağdurlarına Ulaştır!</h2>
-                    <p class="text-slate-300 text-sm leading-relaxed">
-                        Ne kadar çok yatırımcı bu sayfayı kullanarak TBMM'ye e-posta gönderirse, Meclis gündeminde o kadar güçlü baskı oluşur. Telegram, WhatsApp ve X gruplarında paylaşın.
-                    </p>
-                </div>
-                <div class="flex flex-wrap gap-3 shrink-0">
-                    <button type="button" onclick="shareOnX()" class="inline-flex items-center justify-center gap-2 bg-black hover:bg-neutral-900 text-white font-semibold text-sm px-5 py-3 rounded-xl border border-white/15 transition shadow-sm">
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                        <span>X'te Paylaş</span>
-                    </button>
-                    <button type="button" onclick="shareOnWhatsApp()" class="inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm px-5 py-3 rounded-xl transition shadow-sm">
-                        <span>WhatsApp'ta Paylaş</span>
-                    </button>
-                    <button type="button" onclick="copyPageLink()" class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold text-sm px-4 py-3 rounded-xl transition">
-                        <span>Bağlantıyı Kopyala</span>
-                    </button>
-                </div>
+            <div class="flex flex-wrap gap-2.5">
+                <button type="button" id="shareWaBtn" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl transition">
+                    WhatsApp'ta Paylaş
+                </button>
+                <button type="button" id="shareXBtn" class="bg-black hover:bg-neutral-800 text-white font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-white/15 transition">
+                    X'te Paylaş
+                </button>
+                <button type="button" id="copyLinkBtn" class="bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl transition">
+                    Linki Kopyala
+                </button>
             </div>
         </section>
 
     </main>
 
-    <!-- Alt Bilgi -->
-    <footer class="bg-navy-950 text-slate-400 py-8 px-4 text-center text-xs border-t border-slate-800">
-        <div class="max-w-4xl mx-auto space-y-2">
-            <p class="font-semibold text-slate-300">Fon Mağdurları Sivil Dayanışma Platformu</p>
-            <p>Anayasa Madde 125 &amp; Sermaye Piyasası Mevzuatı Kapsamında Kamu Denetim Kusurunun Giderilmesi Talebidir.</p>
-        </div>
+    <footer class="text-center text-xs text-slate-500 py-6 px-4">
+        Fon Mağdurları Platformu &bull; TBMM Sivil Dayanışma Kampanyası
     </footer>
 
-    <!-- Uygulama Mantığı -->
     <script>
-        // TBMM 28. Dönem 550+ Kapsamlı Milletvekili ve Komisyon E-Posta Havuzu
-        const DEFAULT_MP_EMAILS = [
-            // Komisyon ve Özel Kalem
-            "butcekom@tbmm.gov.tr", "ozelkalem@tbmm.gov.tr",
-            // Adana
-            "omer.celik@tbmm.gov.tr", "ahmet.zenbilci@tbmm.gov.tr", "abdullah.dogru@tbmm.gov.tr", "sunay.karamik@tbmm.gov.tr", "faruk.aytek@tbmm.gov.tr", "orhan.sumer@tbmm.gov.tr", "muzeyyen.sevkin@tbmm.gov.tr", "burhanettin.bulut@tbmm.gov.tr", "ayhan.barut@tbmm.gov.tr", "bilal.bilici@tbmm.gov.tr", "muharrem.varli@tbmm.gov.tr", "ayse.sibelersoy@tbmm.gov.tr", "tulay.hatimogullarioruc@tbmm.gov.tr", "sadullah.kisacik@tbmm.gov.tr",
-            // Adıyaman
-            "resul.kurt@tbmm.gov.tr", "ishak.sahin@tbmm.gov.tr", "mustafa.alkayis@tbmm.gov.tr", "huseyin.ozhan@tbmm.gov.tr", "abdurrahman.tutdere@tbmm.gov.tr",
-            // Afyonkarahisar
-            "ali.ozkaya@tbmm.gov.tr", "ibrahim.yurdunuseven@tbmm.gov.tr", "hasan.arslan@tbmm.gov.tr", "burcu.koksal@tbmm.gov.tr", "mehmet.taytak@tbmm.gov.tr", "hakan.seref.olgun@tbmm.gov.tr",
-            // Ağrı
-            "sirri.sakik@tbmm.gov.tr", "nejla.demir@tbmm.gov.tr", "heval.bozdag@tbmm.gov.tr", "ruken.kilerci@tbmm.gov.tr",
-            // Aksaray
-            "cengiz.aydogdu@tbmm.gov.tr", "huseyin.altinsoy@tbmm.gov.tr", "ramazan.kasli@tbmm.gov.tr", "turan.yaldiz@tbmm.gov.tr",
-            // Amasya
-            "haluk.ipek@tbmm.gov.tr", "hasan.cilez@tbmm.gov.tr", "resat.karagoz@tbmm.gov.tr",
-            // Ankara
-            "fuat.oktay@tbmm.gov.tr", "leyla.sahinusta@tbmm.gov.tr", "murat.alparslan@tbmm.gov.tr", "zeynep.yildiz@tbmm.gov.tr", "osman.gokcek@tbmm.gov.tr", "kurtcan.celebi@tbmm.gov.tr", "omer.ileri@tbmm.gov.tr", "asuman.erdogan@tbmm.gov.tr", "lutfiyeselva.cam@tbmm.gov.tr", "orhan.yegin@tbmm.gov.tr", "jale.sarieroğlu@tbmm.gov.tr", "ahmet.fethan.baykoc@tbmm.gov.tr", "gamze.tascier@tbmm.gov.tr", "deniz.demir@tbmm.gov.tr", "okan.konuralp@tbmm.gov.tr", "aliye.timisi@tbmm.gov.tr", "sadullah.ergin2@tbmm.gov.tr", "idris.sahin@tbmm.gov.tr", "murat.emir@tbmm.gov.tr", "umut.akdogan@tbmm.gov.tr", "semra.dincer@tbmm.gov.tr", "tekin.bingol@tbmm.gov.tr", "aylin.nazliaka@tbmm.gov.tr", "orsan.kunteroymen@tbmm.gov.tr", "mevlut.karakaya@tbmm.gov.tr", "sadir.durmaz@tbmm.gov.tr", "yildirimtugrul.turkes@tbmm.gov.tr", "koray.aydin@tbmm.gov.tr", "kursad.zorlu@tbmm.gov.tr", "yuksel.arslan@tbmm.gov.tr", "adnan.beker@tbmm.gov.tr", "ahmet.esref.fakibaba@tbmm.gov.tr", "mustafa.nedim.yamali@tbmm.gov.tr", "mesut.dogan@tbmm.gov.tr", "mustafa.kaya@tbmm.gov.tr",
-            // Antalya
-            "mevlut.cavusoglu@tbmm.gov.tr", "mustafa.kose@tbmm.gov.tr", "tuba.vuralcokal@tbmm.gov.tr", "kemal.celik@tbmm.gov.tr", "atay.uslu@tbmm.gov.tr", "ibrahim.ethem.tas@tbmm.gov.tr", "sururi.corabatir@tbmm.gov.tr", "cavit.ari@tbmm.gov.tr", "aliye.cosar@tbmm.gov.tr", "serap.yazici@tbmm.gov.tr", "seref.arPACI@tbmm.gov.tr", "mustafa.erdogan@tbmm.gov.tr", "abdurrahman.baskan@tbmm.gov.tr", "hilmi.durgun@tbmm.gov.tr", "ugur.poyraz@tbmm.gov.tr", "aykut.kaya@tbmm.gov.tr", "hakki.saruhan.oluc@tbmm.gov.tr",
-            // Ardahan
-            "kaan.koc@tbmm.gov.tr", "ozgur.erdem.incesu@tbmm.gov.tr",
-            // Artvin
-            "faruk.celik@tbmm.gov.tr", "ugur.bayraktutan@tbmm.gov.tr",
-            // Aydın
-            "mustafasavas@tbmm.gov.tr", "seda.saribas@tbmm.gov.tr", "omer.ozmen@tbmm.gov.tr", "bulent.tezcan@tbmm.gov.tr", "huseyin.yildiz@tbmm.gov.tr", "suleyman.bulbul@tbmm.gov.tr", "evrim.karakoz@tbmm.gov.tr", "omer.karakas@tbmm.gov.tr",
-            // Balıkesir
-            "ismail.ok@tbmm.gov.tr", "belgin.uygur@tbmm.gov.tr", "mustafa.canbey@tbmm.gov.tr", "ali.taylan.oztaylan@tbmm.gov.tr", "ensar.aytekin@tbmm.gov.tr", "serkan.sari@tbmm.gov.tr", "burak.dalgin@tbmm.gov.tr", "ekrem.gokce@tbmm.gov.tr", "turhan.comez@tbmm.gov.tr",
-            // Bartın
-            "yusuf.ziya.aldatmaz@tbmm.gov.tr", "aysu.bankoglu@tbmm.gov.tr",
-            // Batman
-            "ferhat.nasiroglu@tbmm.gov.tr", "keskin.bayindir@tbmm.gov.tr", "zeynep.oduncu@tbmm.gov.tr", "mehmet.rustu.tiryaki@tbmm.gov.tr", "serkan.ramanli@tbmm.gov.tr",
-            // Bayburt
-            "orhan.ates@tbmm.gov.tr",
-            // Bilecik
-            "halil.eldemir@tbmm.gov.tr", "yasar.tuzun@tbmm.gov.tr",
-            // Bingöl
-            "feyzi.berdibek@tbmm.gov.tr", "zeki.korkutata@tbmm.gov.tr", "omer.faruk.hulaku@tbmm.gov.tr",
-            // Bitlis
-            "turan.bedirhanoglu@tbmm.gov.tr", "huseyin.olan@tbmm.gov.tr", "semra.caglar.gokalp@tbmm.gov.tr",
-            // Bolu
-            "yuksel.coskunyurek@tbmm.gov.tr", "turker.ates@tbmm.gov.tr", "ismail.akgul@tbmm.gov.tr",
-            // Burdur
-            "adem.korkmaz@tbmm.gov.tr", "mustafa.oguz@tbmm.gov.tr", "izzet.akbulut@tbmm.gov.tr",
-            // Bursa
-            "efkan.ala@tbmm.gov.tr", "refik.ozen@tbmm.gov.tr", "ahmet.kilic@tbmm.gov.tr", "emine.yavuzgozgec@tbmm.gov.tr", "mustafa.varank@tbmm.gov.tr", "ayhan.salman@tbmm.gov.tr", "osman.mesten@tbmm.gov.tr", "muhammet.mufitaydin@tbmm.gov.tr", "emelsu.karakaya@tbmm.gov.tr", "mustafa.yavuz@tbmm.gov.tr", "nurhayat.altacakayisoglu@tbmm.gov.tr", "kayihan.pala@tbmm.gov.tr", "orhan.saribal@tbmm.gov.tr", "hasan.ozturk@tbmm.gov.tr", "mehmet.atmaca@tbmm.gov.tr", "cemalettin.kani.torun@tbmm.gov.tr", "ismet.buyukataman@tbmm.gov.tr", "fevzi.zirhlioglu@tbmm.gov.tr", "selcuk.turkoglu@tbmm.gov.tr", "hasan.toktas@tbmm.gov.tr",
-            // Çanakkale
-            "ayhangider@tbmm.gov.tr", "ismet.guneşhan@tbmm.gov.tr", "ozgur.ceylan@tbmm.gov.tr", "ridvan.uz@tbmm.gov.tr",
-            // Çankırı
-            "muhammet.emin.akbasoglu@tbmm.gov.tr", "pelin.yilik@tbmm.gov.tr",
-            // Çorum
-            "yusuf.ahlatci@tbmm.gov.tr", "oguzhan.kaya@tbmm.gov.tr", "mehmet.tasdogen@tbmm.gov.tr", "vahit.kayrici@tbmm.gov.tr",
-            // Denizli
-            "cahit.ozkan@tbmm.gov.tr", "sahin.tin@tbmm.gov.tr", "nilgun.ok@tbmm.gov.tr", "gulizar.bicer.karaca@tbmm.gov.tr", "seref.arpaci@tbmm.gov.tr", "sema.silkin.un@tbmm.gov.tr", "yasin.ozturk@tbmm.gov.tr",
-            // Diyarbakır
-            "m.galip.ensarioglu@tbmm.gov.tr", "mehmet.sait.yaz@tbmm.gov.tr", "suna.kepolu.ataman@tbmm.gov.tr", "berdan.ozturk@tbmm.gov.tr", "halide.turkoglu@tbmm.gov.tr", "osman.cengiz.candar@tbmm.gov.tr", "adilet.kaya@tbmm.gov.tr", "serhat.eren@tbmm.gov.tr", "mehmet.kamac@tbmm.gov.tr", "ceylan.akca.cupolo@tbmm.gov.tr", "sezai.temelli@tbmm.gov.tr", "sezgin.tanrikulu@tbmm.gov.tr",
-            // Düzce
-            "ayse.kesir@tbmm.gov.tr", "ercan.ozturk@tbmm.gov.tr", "talih.ozcan@tbmm.gov.tr",
-            // Edirne
-            "fatma.aksal@tbmm.gov.tr", "ediz.un@tbmm.gov.tr", "ahmet.baran.yazgan@tbmm.gov.tr", "mehmet.akalin@tbmm.gov.tr",
-            // Elazığ
-            "erol.keles@tbmm.gov.tr", "ejder.acikkapi@tbmm.gov.tr", "mahmut.ridvan.nazirli@tbmm.gov.tr", "gursel.erol@tbmm.gov.tr", "semih.isikver@tbmm.gov.tr",
-            // Erzincan
-            "suleyman.karaman@tbmm.gov.tr", "mustafa.sarigul@tbmm.gov.tr",
-            // Erzurum
-            "selami.altinok@tbmm.gov.tr", "fatma.oncü@tbmm.gov.tr", "mehmet.emin.oz@tbmm.gov.tr", "abdurrahim.firat@tbmm.gov.tr", "kamil.aydin@tbmm.gov.tr", "meral.danisbestas@tbmm.gov.tr",
-            // Eskişehir
-            "fatih.donmez@tbmm.gov.tr", "aysen.gurcan@tbmm.gov.tr", "nebi.hatipoglu@tbmm.gov.tr", "utku.cakirozer@tbmm.gov.tr", "jalenur.sullu@tbmm.gov.tr", "ibrahim.arslan@tbmm.gov.tr",
-            // Gaziantep
-            "abdulhamit.gul@tbmm.gov.tr", "mehmet.eyup.ozkecici@tbmm.gov.tr", "ali.sahin@tbmm.gov.tr", "derya.bakbak@tbmm.gov.tr", "mesut.bozatli@tbmm.gov.tr", "sahbaz.korkmaz@tbmm.gov.tr", "irfan.capar@tbmm.gov.tr", "bunyamin.bozgeyik@tbmm.gov.tr", "hasan.ozturkmen@tbmm.gov.tr", "melih.meric@tbmm.gov.tr", "ertugrul.kaya@tbmm.gov.tr", "sermet.atay@tbmm.gov.tr", "mehmet.mustafa.gurban@tbmm.gov.tr", "sevda.karaca.demir@tbmm.gov.tr",
-            // Giresun
-            "nazim.elmas@tbmm.gov.tr", "ali.temur@tbmm.gov.tr", "elvan.isikgecmis@tbmm.gov.tr", "ertugrul.gazi.konal@tbmm.gov.tr",
-            // Gümüşhane
-            "celalettin.kose@tbmm.gov.tr", "musa.kucuk@tbmm.gov.tr",
-            // Hakkari
-            "vezir.coskun.parlak@tbmm.gov.tr", "oznur.bartin@tbmm.gov.tr", "onur.dusünmez@tbmm.gov.tr",
-            // Hatay
-            "adem.yesildal@tbmm.gov.tr", "abdulkadir.ozel@tbmm.gov.tr", "huseyin.yayman@tbmm.gov.tr", "kemal.karahan@tbmm.gov.tr", "mehmet.guzelmansur@tbmm.gov.tr", "nermin.yildirim.kara@tbmm.gov.tr", "servet.mullaoğlu@tbmm.gov.tr", "necmettin.caliskan@tbmm.gov.tr", "lutfi.kasikci@tbmm.gov.tr", "adnansefik.cirkin@tbmm.gov.tr", "can.atalay@tbmm.gov.tr",
-            // Iğdır
-            "canturk.alagoz@tbmm.gov.tr", "yilmaz.hun@tbmm.gov.tr",
-            // Isparta
-            "mehmetugur.gokgoz@tbmm.gov.tr", "osman.zabun@tbmm.gov.tr", "hikmet.yaglibasar@tbmm.gov.tr", "hasan.basri.sonmez@tbmm.gov.tr",
-            // İstanbul
-            "numan.kurtulmus@tbmm.gov.tr", "murat.kurum@tbmm.gov.tr", "erkan.kandemir@tbmm.gov.tr", "hasan.turan@tbmm.gov.tr", "mustafa.demir@tbmm.gov.tr", "suleyman.soylu@tbmm.gov.tr", "halit.yerebakan@tbmm.gov.tr", "hulki.cevizoglu@tbmm.gov.tr", "tubadurgut@tbmm.gov.tr", "ismail.emrah.karayel@tbmm.gov.tr", "bayram.senocak@tbmm.gov.tr", "cuneyt.yuksel@tbmm.gov.tr", "samil.ayrim@tbmm.gov.tr", "yahya.celik@tbmm.gov.tr", "behcet.suayip.yildiz@tbmm.gov.tr", "sena.nurcelik@tbmm.gov.tr", "rumeysa.kadak@tbmm.gov.tr", "oguz.ucuncu@tbmm.gov.tr", "rabia.ilhan@tbmm.gov.tr", "adem.yildirim@tbmm.gov.tr", "nurettin.alan@tbmm.gov.tr", "nilhan.ayan@tbmm.gov.tr", "seda.goren.boluk@tbmm.gov.tr", "zafer.sirakaya@tbmm.gov.tr", "busra.paker@tbmm.gov.tr", "sevan.sivacioglu@tbmm.gov.tr", "derya.ayaydin@tbmm.gov.tr", "adem.gencer@tbmm.gov.tr", "ozlem.zengin@tbmm.gov.tr", "serkan.bayram@tbmm.gov.tr", "yildiz.konal.surek@tbmm.gov.tr", "ozgur.karabat@tbmm.gov.tr", "ilhan.kesici@tbmm.gov.tr", "gamze.akkusilgezdi@tbmm.gov.tr", "fethi.acikel@tbmm.gov.tr", "gokhan.zeybek@tbmm.gov.tr", "oguz.kaan.salici@tbmm.gov.tr", "namik.tan@tbmm.gov.tr", "yunus.emre@tbmm.gov.tr", "zeynel.emre@tbmm.gov.tr", "turkan.elci@tbmm.gov.tr", "ali.gokcek@tbmm.gov.tr", "suheyla.dinc@tbmm.gov.tr", "enginaltay@tbmm.gov.tr", "erdogan.toprak@tbmm.gov.tr", "dogancan.akgun@tbmm.gov.tr", "cemal.enginyurt@tbmm.gov.tr", "salih.uzun@tbmm.gov.tr", "evrim.rizvanoglu@tbmm.gov.tr", "mustafa.yeneroglu@tbmm.gov.tr", "elvan.kuzucu@tbmm.gov.tr", "hasan.karal@tbmm.gov.tr", "medeni.yilmaz@tbmm.gov.tr", "selim.temurci@tbmm.gov.tr", "bulent.kaya@tbmm.gov.tr", "birol.aydin@tbmm.gov.tr", "dogan.bekin@tbmm.gov.tr", "suat.pamukcu@tbmm.gov.tr", "ali.fazil.kasap@tbmm.gov.tr", "isa.mesih.sahin@tbmm.gov.tr", "celal.adan@tbmm.gov.tr", "izzet.ulviyonter@tbmm.gov.tr", "fetih.yildiz@tbmm.gov.tr", "ismailfaruk.aksu@tbmm.gov.tr", "edibe.sozen@tbmm.gov.tr", "ersin.beyaz@tbmm.gov.tr", "burak.akburak@tbmm.gov.tr", "mustafa.cihan.pacaci@tbmm.gov.tr", "naci.caglar@tbmm.gov.tr", "ayse.sibelyanikoglu@tbmm.gov.tr", "seyithan.izsiz@tbmm.gov.tr", "sirri.sureyya.onder@tbmm.gov.tr", "pervin.buldan@tbmm.gov.tr", "cengiz.cicek@tbmm.gov.tr", "ozgul.saki@tbmm.gov.tr", "keziban.konukcu.kok@tbmm.gov.tr", "celal.firat@tbmm.gov.tr", "cicek.otlu@tbmm.gov.tr", "iskender.bayhan@tbmm.gov.tr", "erkan.bas@tbmm.gov.tr", "sera.kadigil@tbmm.gov.tr", "ahmet.sik@tbmm.gov.tr", "zekeriya.yapicioglu@tbmm.gov.tr", "serkan.ramanli@tbmm.gov.tr", "onder.aksakal@tbmm.gov.tr",
-            // İzmir
-            "mehmet.kasapoglu@tbmm.gov.tr", "mahmut.atilla.kaya@tbmm.gov.tr", "sebnem.bursali@tbmm.gov.tr", "mehmet.ali.celebi@tbmm.gov.tr", "eyup.kadir.inan@tbmm.gov.tr", "alpay.ozalan@tbmm.gov.tr", "ceyda.bolunmez.cankiri@tbmm.gov.tr", "yasar.kirkpinar@tbmm.gov.tr", "yuksel.taskin@tbmm.gov.tr", "ahmet.tuncay.ozkan@tbmm.gov.tr", "sevda.erdan.kilic@tbmm.gov.tr", "murat.bakan@tbmm.gov.tr", "ednan.arslan@tbmm.gov.tr", "seda.kaya.osen@tbmm.gov.tr", "haydar.altintas@tbmm.gov.tr", "gokce.gokcen@tbmm.gov.tr", "riza.turmen@tbmm.gov.tr", "rahmi.askin.tureli@tbmm.gov.tr", "mahir.polat@tbmm.gov.tr", "salih.uzun@tbmm.gov.tr", "deniz.yucel@tbmm.gov.tr", "mustafa.bilici@tbmm.gov.tr", "tamer.osmanagaoglu@tbmm.gov.tr", "musavat.dervisoglu@tbmm.gov.tr", "umit.ozlale@tbmm.gov.tr", "husmen.kirkpinar@tbmm.gov.tr", "ibrahim.akin@tbmm.gov.tr", "burcugul.cubuk@tbmm.gov.tr",
-            // Kahramanmaraş
-            "vahit.kirisci@tbmm.gov.tr", "omer.oruc.bilal.debdemi@tbmm.gov.tr", "mevlut.kurt@tbmm.gov.tr", "tuba.koksal@tbmm.gov.tr", "mehmet.sahin@tbmm.gov.tr", "ali.oztunc@tbmm.gov.tr", "irfan.karatutlu@tbmm.gov.tr", "zuhal.karakoc.dora@tbmm.gov.tr",
-            // Karabük
-            "cem.sahin@tbmm.gov.tr", "durmus.ali.keskinkilic@tbmm.gov.tr", "cevdet.akay@tbmm.gov.tr",
-            // Karaman
-            "selman.oguzhan.eser@tbmm.gov.tr", "osman.saglam@tbmm.gov.tr", "ismail.atakli@tbmm.gov.tr",
-            // Kars
-            "adem.calkin@tbmm.gov.tr", "inan.akgun.alp@tbmm.gov.tr", "gulistan.kilickocyigit@tbmm.gov.tr",
-            // Kastamonu
-            "halil.ulay@tbmm.gov.tr", "fatma.serap.ekmekci@tbmm.gov.tr", "hasan.baltaci@tbmm.gov.tr",
-            // Kayseri
-            "hulusi.akar@tbmm.gov.tr", "mustafa.elitas@tbmm.gov.tr", "ayse.bohler@tbmm.gov.tr", "saban.copuroglu@tbmm.gov.tr", "murat.cahid.cingi@tbmm.gov.tr", "sayin.bayar.ozsoy@tbmm.gov.tr", "askin.genc@tbmm.gov.tr", "ismail.ozdemir@tbmm.gov.tr", "mustafa.baki.ersoy@tbmm.gov.tr", "dursun.atas@tbmm.gov.tr", "mahmut.arikan@tbmm.gov.tr",
-            // Kırıkkale
-            "mustafa.kaplan@tbmm.gov.tr", "ahmet.onal@tbmm.gov.tr", "halil.ozturk@tbmm.gov.tr",
-            // Kırklareli
-            "ahmet.gokhan.saricam@tbmm.gov.tr", "vecdi.gundogdu@tbmm.gov.tr", "fahri.ozkan@tbmm.gov.tr",
-            // Kırşehir
-            "necdet.erkan@tbmm.gov.tr", "metin.ilhan@tbmm.gov.tr",
-            // Kilis
-            "ahmet.salih.dal@tbmm.gov.tr", "mustafa.demir@tbmm.gov.tr",
-            // Kocaeli
-            "sadettin.hulagu@tbmm.gov.tr", "radiye.sezer.katircioglu@tbmm.gov.tr", "veysel.tipioglu@tbmm.gov.tr", "mehmet.akif.yilmaz@tbmm.gov.tr", "cemil.yaman@tbmm.gov.tr", "sami.cakir@tbmm.gov.tr", "muhip.kanko@tbmm.gov.tr", "harun.ozgur.yildizli@tbmm.gov.tr", "nail.ciler@tbmm.gov.tr", "hasan.bitmez@tbmm.gov.tr", "saffet.sancakli@tbmm.gov.tr", "lutfu.turkkan@tbmm.gov.tr", "omer.farukgergerlioglu@tbmm.gov.tr",
-            // Konya
-            "tahir.akyurek@tbmm.gov.tr", "orhan.erdem@tbmm.gov.tr", "selman.ozboyaci@tbmm.gov.tr", "meryem.goka@tbmm.gov.tr", "abdullah.agrali@tbmm.gov.tr", "mehmet.baykan@tbmm.gov.tr", "ziya.altunyaldiz@tbmm.gov.tr", "latif.selvi@tbmm.gov.tr", "mustafa.hakki.ozturk@tbmm.gov.tr", "baris.bektas@tbmm.gov.tr", "hasan.ekici@tbmm.gov.tr", "mustafa.kalayci@tbmm.gov.tr", "konur.alp.kocak@tbmm.gov.tr", "ali.yuksel@tbmm.gov.tr", "unal.karaman@tbmm.gov.tr",
-            // Kütahya
-            "adil.bicer@tbmm.gov.tr", "ismail.caglar.bayram@tbmm.gov.tr", "mehmet.demir@tbmm.gov.tr", "ali.fazil.kasap@tbmm.gov.tr", "ahmet.erbas@tbmm.gov.tr",
-            // Malatya
-            "bulent.tufenkci@tbmm.gov.tr", "ihsan.koca@tbmm.gov.tr", "ina.babuc@tbmm.gov.tr", "abdurrahman.babacan@tbmm.gov.tr", "veli.agbaba@tbmm.gov.tr", "mehmet.celal.fendoglu@tbmm.gov.tr",
-            // Manisa
-            "bahadir.nahit.yenisehirlioglu@tbmm.gov.tr", "murat.baybatur@tbmm.gov.tr", "tamer.akkal@tbmm.gov.tr", "ahmet.mucahit.arinc@tbmm.gov.tr", "ozgur.ozel@tbmm.gov.tr", "ahmet.vehbi.bakirlioglu@tbmm.gov.tr", "bekir.basEvirgen@tbmm.gov.tr", "selma.aliye.kavaf@tbmm.gov.tr", "erkan.akcay@tbmm.gov.tr", "senol.sunat@tbmm.gov.tr",
-            // Mardin
-            "faruk.kilic@tbmm.gov.tr", "muhammed.adak@tbmm.gov.tr", "salihe.aydeniz@tbmm.gov.tr", "kamuran.tanhan@tbmm.gov.tr", "mithat.sancar@tbmm.gov.tr", "beritan.gunes.altin@tbmm.gov.tr", "george.aslan@tbmm.gov.tr",
-            // Mersin
-            "nurettin.nebati@tbmm.gov.tr", "ali.kiratli@tbmm.gov.tr", "havva.sibelsuicmez@tbmm.gov.tr", "ali.mahir.basarir@tbmm.gov.tr", "gulcan.kislasaygili@tbmm.gov.tr", "talat.dincer@tbmm.gov.tr", "hasan.ufukcakir@tbmm.gov.tr", "mehmet.emin.ekmen@tbmm.gov.tr", "faruk.dinc@tbmm.gov.tr", "levent.uysal@tbmm.gov.tr", "burhanettin.kocamaz@tbmm.gov.tr", "ali.bozan@tbmm.gov.tr", "perihan.koca@tbmm.gov.tr",
-            // Muğla
-            "kadem.mete@tbmm.gov.tr", "yakup.otgoz@tbmm.gov.tr", "cumhur.uzun@tbmm.gov.tr", "gizem.ozcan@tbmm.gov.tr", "sureyya.ones.derici@tbmm.gov.tr", "selcuk.ozdag@tbmm.gov.tr", "metin.ergun@tbmm.gov.tr",
-            // Muş
-            "mehmet.emin.simsek@tbmm.gov.tr", "semseddin.polat@tbmm.gov.tr", "sumeyye.boz@tbmm.gov.tr",
-            // Nevşehir
-            "suleyman.ozgun@tbmm.gov.tr", "emre.caliskan@tbmm.gov.tr", "filiz.kilic@tbmm.gov.tr",
-            // Niğde
-            "cevahir.uzkurt@tbmm.gov.tr", "omer.fethi.gurer@tbmm.gov.tr", "cumali.ince@tbmm.gov.tr",
-            // Ordu
-            "mahmut.ozer@tbmm.gov.tr", "ibrahim.ufuk.kaynak@tbmm.gov.tr", "mustafa.hamarat@tbmm.gov.tr", "seyit.torun@tbmm.gov.tr", "mustafa.adiguzel@tbmm.gov.tr", "naci.sanliturk@tbmm.gov.tr",
-            // Osmaniye
-            "derya.yanik@tbmm.gov.tr", "seyda.gultekin@tbmm.gov.tr", "asu.kaya@tbmm.gov.tr", "devlet.bahceli@tbmm.gov.tr",
-            // Rize
-            "muhammed.avni@tbmm.gov.tr", "harun.mermeroglu@tbmm.gov.tr", "tahsin.ocakli@tbmm.gov.tr",
-            // Sakarya
-            "lutfi.bayraktar@tbmm.gov.tr", "cigdem.erdogan@tbmm.gov.tr", "ali.inci@tbmm.gov.tr", "ertuğrul.kocacik@tbmm.gov.tr", "murat.kaya@tbmm.gov.tr", "ayca.taskent@tbmm.gov.tr", "muhammed.levent.bulbul@tbmm.gov.tr", "umit.dikbayir@tbmm.gov.tr",
-            // Samsun
-            "mehmet.mus@tbmm.gov.tr", "cigdem.karaaslan@tbmm.gov.tr", "yusuf.ziya.yilmaz@tbmm.gov.tr", "orhan.kircali@tbmm.gov.tr", "ersan.aksu@tbmm.gov.tr", "murat.can@tbmm.gov.tr", "mehmet.karaman@tbmm.gov.tr", "ilyas.topsakal@tbmm.gov.tr", "erhan.usta@tbmm.gov.tr",
-            // Siirt
-            "merve.gul@tbmm.gov.tr", "tuncer.bakirhan@tbmm.gov.tr", "sabahat.erdogan.saritas@tbmm.gov.tr",
-            // Sinop
-            "nazim.mavis@tbmm.gov.tr", "baris.karadeniz@tbmm.gov.tr",
-            // Sivas
-            "abdullah.guler@tbmm.gov.tr", "hakan.aksu@tbmm.gov.tr", "rukiye.toy@tbmm.gov.tr", "ulas.karasu@tbmm.gov.tr", "ahmet.ozyurek@tbmm.gov.tr",
-            // Şanlıurfa
-            "bekir.bozdag@tbmm.gov.tr", "abdulkadir.eminonen@tbmm.gov.tr", "mehmetali.cevheri@tbmm.gov.tr", "ibrahim.eyyupoglu@tbmm.gov.tr", "hikmet.basak@tbmm.gov.tr", "cevahir.asuman.yazmaci@tbmm.gov.tr", "mehmet.faruk.pinarbasi@tbmm.gov.tr", "abdurrahim.dusak@tbmm.gov.tr", "mahmut.tanal@tbmm.gov.tr", "ibrahim.ozisik@tbmm.gov.tr", "omer.ocalan@tbmm.gov.tr", "ferit.sanyasar@tbmm.gov.tr", "dilan.kuntayan@tbmm.gov.tr",
-            // Şırnak
-            "arslan.tatar@tbmm.gov.tr", "nevroz.uysal.aslan@tbmm.gov.tr", "mehmet.zeki.irmak@tbmm.gov.tr", "aysegul.dogan.dagli@tbmm.gov.tr",
-            // Tekirdağ
-            "mestan.ozcan@tbmm.gov.tr", "gokhan.diktaş@tbmm.gov.tr", "cigdem.koncagul@tbmm.gov.tr", "faik.oztrak@tbmm.gov.tr", "ilhami.ozcan.aygun@tbmm.gov.tr", "cem.avsar@tbmm.gov.tr", "nurten.yontar@tbmm.gov.tr", "selcan.hamamcioglu@tbmm.gov.tr",
-            // Tokat
-            "yusuf.beyazit@tbmm.gov.tr", "mustafa.arslan@tbmm.gov.tr", "cüneyt.aldemir@tbmm.gov.tr", "kadim.durmaz@tbmm.gov.tr", "yucel.bulut@tbmm.gov.tr",
-            // Trabzon
-            "adil.karaismailoglu@tbmm.gov.tr", "mustafa.sen@tbmm.gov.tr", "yilmaz.buyukaydin@tbmm.gov.tr", "vehbi.koc@tbmm.gov.tr", "sibel.suicmez@tbmm.gov.tr", "yavuz.aydin@tbmm.gov.tr",
-            // Tunceli
-            "ayten.kordu@tbmm.gov.tr",
-            // Uşak
-            "ismail.gunes@tbmm.gov.tr", "fahrettin.tugrul@tbmm.gov.tr", "ali.karaoba@tbmm.gov.tr",
-            // Van
-            "burhan.kayaturk@tbmm.gov.tr", "kayhan.turkmenoglu@tbmm.gov.tr", "pervin.buldan@tbmm.gov.tr", "zeki.irmak@tbmm.gov.tr", "guldere.varli@tbmm.gov.tr", "mahmut.dindar@tbmm.gov.tr", "sinan.ciftyurek@tbmm.gov.tr", "gulcan.kacmaz.sayyigit@tbmm.gov.tr",
-            // Yalova
-            "ahmet.buyukgumus@tbmm.gov.tr", "meliha.akyol@tbmm.gov.tr", "tahsin.becan@tbmm.gov.tr",
-            // Yozgat
-            "abdulkadir.akgul@tbmm.gov.tr", "suleyman.sahan@tbmm.gov.tr", "ibrahim.ethem.sedef@tbmm.gov.tr", "lutfullah.kayalar@tbmm.gov.tr",
-            // Zonguldak
-            "muammer.avci@tbmm.gov.tr", "saffet.bozkurt@tbmm.gov.tr", "ahmet.colakoglu@tbmm.gov.tr", "deniz.yavuzyilmaz@tbmm.gov.tr", "eylem.ertug.ertugrul@tbmm.gov.tr"
-        ];
+        (function () {
+            "use strict";
 
-        // Türkçe karakter temizleme ve tekilleştirme yardımcı fonksiyonu
-        function normalizeEmailList(rawArray) {
-            const trMap = { 'ç': 'c', 'ğ': 'g', 'ı': 'i', 'ö': 'o', 'ş': 's', 'ü': 'u', 'İ': 'i', 'Ç': 'c', 'Ğ': 'g', 'Ö': 'o', 'Ş': 's', 'Ü': 'u' };
-            const cleaned = rawArray.map(e => {
-                let lower = e.trim().toLowerCase();
-                lower = lower.replace(/[çğıöşüİÇĞÖŞÜ]/g, m => trMap[m] || m);
-                return lower;
-            }).filter(e => /^[a-z0-9._%+-]+@tbmm\.gov\.tr$/.test(e));
-            return Array.from(new Set(cleaned));
-        }
+            var EMAIL_SUBJECT = 'TBMM Gündemine Arz: Yatırım Fonları Mağduriyeti, "Net Yatırım Tutarı (NYT)" Gerçeği ve Kamuoyu Yanıltması Hk.';
 
-        // Aktif E-posta Listesini Yükle (Varsa localStorage'daki özel liste, yoksa dahili 550+ liste)
-        function getActiveEmails() {
-            const customStored = localStorage.getItem('fon_custom_tbmm_emails');
-            if (customStored) {
-                try {
-                    const parsed = JSON.parse(customStored);
-                    if (Array.isArray(parsed) && parsed.length > 0) {
-                        return { emails: parsed, isCustom: true };
-                    }
-                } catch (e) {}
+            var FULL_BODY = [
+                "Sayın Milletvekilim,",
+                "",
+                "Türkiye Büyük Millet Meclisi çatısı altında milletimizin hak ve hukukunu savunan bir temsilcimiz olarak, ülkemizde 455 binden fazla vatandaşı ve aileleriyle birlikte milyonlarca seçmeni doğrudan mağdur eden yatırım fonları tasfiye sürecindeki büyük bir hukuksuzluğu ve kamuoyuna yönelik bilgi kirliliğini dikkatinize sunuyoruz.",
+                "",
+                "Sürecin başında Sayın Cumhurbaşkanımız ve ekonomi yönetimi tarafından yapılan açıklamalarda, mağdur yatırımcılara 1 milyon TL'ye kadar \"Net Yatırım Tutarı (NYT)\" ödemesi yapılacağı açıkça taahhüt edilmişti. Ancak bugün Hazine ve Maliye Bakanı Sayın Mehmet Şimşek ve ekonomi yönetimi, \"371-377 bin yatırımcı net yatırım tutarını aldı\" diyerek gerçeği yansıtmayan bir algı oluşturmaktadır.",
+                "",
+                "1. Net Yatırım Tutarı (NYT) Nedir ve Nasıl Çarpıtılmaktadır?",
+                "Net Yatırım Tutarı (NYT); bir yatırımcının ilgili fona yatırdığı toplam anaparadan, geçmişte o fondan çektiği tutarların düşülmesiyle bulunan gerçek net anaparadır. Yani cebinden net 1.000.000 TL çıkmış bir vatandaşın NYT'si 1.000.000 TL'dir.",
+                "",
+                "Ancak ödeme aşamasına gelindiğinde SPK ve MKK bürokrasisi, kanunun ve verilen sözlerin dışına çıkarak ödemelere \"ödemeden önceki günkü güncel fon pay değeri\" sınırını getirmiştir. Bu kural değişikliğiyle vatandaşın gerçek NYT'si (anaparası) yerine, fon içindeki hisselerin manipülasyonla eritilmiş güncel kırıntı değeri ödenmiştir.",
+                "",
+                "2. Resmi Verilerle Ortaya Çıkan Gerçek Tablo (1 Milyon TL Baz Alındığında):",
+                "- THF (Tera Hisse Senedi Fonu): 214.403 yatırımcı bulunmaktadır. 1.000.000 TL NYT'si (anaparası) olan bir vatandaşa yalnızca 290.419 TL (%29,04) ödenmiş, kalan %70,96'lık tutar buharlaştırılmıştır.",
+                "- TLY (Tera Birinci Serbest Fon): 102.616 yatırımcı bulunmaktadır. 1.000.000 TL NYT'si olan bir yatırımcı eline geçen 112.716 TL ile parasının yalnızca %11,27'sini alabilmiştir.",
+                "- DOH (Tera 4. Hisse Senedi Serbest Fon): 41.799 yatırımcı bulunmaktadır. 1.000.000 TL'ye karşılık 268.428 TL (%26,84) ödenmiş, %73,16'sı içeride kalmıştır.",
+                "- DFI (Atlas Portföy Serbest Fon): 47.645 yatırımcı bulunmaktadır. 1.000.000 TL'ye karşılık yalnızca 32.834 TL (%3,28) ödeme yapılmış, %96,72'si erimiştir.",
+                "- Para Piyasası Fonları (TP2, TLV, PRY, PNU, PSE): Toplam 300 binden fazla hesapta 500.000 TL tavan uygulanmış; 1.000.000 TL'si olan vatandaş parasının %50'sini alabilmiştir.",
+                "- TMV (Tera Algoritmik Stratejiler Fonu): Henüz hiçbir ödeme takvimi dahi açıklanmamıştır.",
+                "",
+                "Yalnızca yukarıdaki 4 hisse/serbest fonda toplam 406.463 yatırımcı hesabı bulunmaktadır ve bu fonlardaki hiç kimse Net Yatırım Tutarını (NYT) alamamıştır. Parasının yalnızca %3 ila %29'unu alan yüz binlerce vatandaş, erimiş portföy değeri üzerinden ödeme yapıldığı için bürokratik kayıtlarda \"NYT'sini aldı, süreci tamamlandı\" şeklinde gösterilmektedir. Sayın Mehmet Şimşek'in kamuoyuna sunduğu bu rakamlar sahadaki gerçeği gizleyen bir istatistik illüzyonudur.",
+                "",
+                "3. Kamu Hizmeti Kusuru ve Meclis'ten Beklentimiz:",
+                "Adalet Bakanlığının yürüttüğü soruşturmalarda Borsa İstanbul, Takasbank, SPK ve BDDK'nın tepe yöneticileri rüşvet ve suç örgütü üyeliği suçlamalarıyla tutuklanmış veya görevden alınmıştır. Devletin denetim kurumlarının bizzat suça ortak olduğu bir ortamda, denetim kusurunun faturası anaparasının %70 ila %96'sını kaybeden sade vatandaşa kesilemez.",
+                "",
+                "Siz değerli Milletvekilimizden talebimiz;",
+                "- Türkiye Büyük Millet Meclisi'nde bu konuyu gündeme getirerek Hazine ve Maliye Bakanı Sayın Mehmet Şimşek'in \"NYT ödendi\" şeklindeki gerçeği yansıtmayan açıklamalarına karşı yazılı soru önergesi vermeniz,",
+                "- TBMM Plan ve Bütçe Komisyonu ile Genel Kurul çalışmalarında, tüm tasfiye fonlarında \"güncel fon pay değeri\" sınırının kaldırılarak vatandaşların gerçek Net Yatırım Tutarlarının (1 Milyon TL'ye kadar olan net anaparanın) eksiksiz ödenmesi için yasal düzenleme girişiminde bulunmanızdır.",
+                "",
+                "Devletine güvenen yüz binlerce vatandaşımızın sesi olmanızı ve haklı mücadelemize destek vermenizi saygılarımızla arz ederiz.",
+                "",
+                "Fon Mağdurları Platformu"
+            ].join("\n");
+
+            // Mobil mailto URL karakter limitine takılmayan ~1150 karakterlik özlü sürüm
+            var SHORT_BODY = [
+                "Sayın Milletvekilim,",
+                "",
+                "455 binden fazla vatandaşı mağdur eden yatırım fonları tasfiye sürecindeki hukuksuzluğu dikkatinize sunuyoruz. 1 Milyon TL'ye kadar \"Net Yatırım Tutarı (NYT)\" ödeneceği vaat edilmesine rağmen, \"ödemeden önceki günkü güncel fon pay değeri\" sınırı getirilerek vatandaşın anaparası eritilmiştir.",
+                "",
+                "Resmi verilere göre 1.000.000 TL NYT'si (anaparası) olan vatandaşa; THF'de 290.419 TL (%29,04), TLY'de 112.716 TL (%11,27), DOH'ta 268.428 TL (%26,84), DFI'da 32.834 TL (%3,28) ödenmiş; para piyasası fonlarında (TP2, TLV, PRY, PNU, PSE) 500.000 TL sınırıyla %50 ödeme yapılmış, TMV'de ise takvim dahi açıklanmamıştır. Buna rağmen \"377 bin kişi NYT aldı\" denmesi gerçeği yansıtmamaktadır.",
+                "",
+                "BIST, Takasbank, SPK ve BDDK yöneticilerinin tutuklandığı bu süreçte yaşanan denetim kusurunun faturası vatandaşa kesilemez. Mehmet Şimşek'in açıklamalarına karşı yazılı soru önergesi vermenizi ve güncel pay değeri sınırının kaldırılarak gerçek NYT'mizin (1 Milyon TL'ye kadar) eksiksiz ödenmesi için yasal düzenleme desteği sunmanızı arz ederiz.",
+                "",
+                "Fon Mağdurları Platformu"
+            ].join("\n");
+
+            // 560 ASCII-uyumlu @tbmm.gov.tr adresi (7 grup x 80 adres)
+            var RAW_EMAILS = [
+                "omer.celik@tbmm.gov.tr", "ahmet.zenbilci@tbmm.gov.tr", "abdullah.dogru@tbmm.gov.tr", "sunay.karamik@tbmm.gov.tr", "faruk.aytek@tbmm.gov.tr", "orhan.sumer@tbmm.gov.tr", "muzeyyen.sevkin@tbmm.gov.tr", "burhanettin.bulut@tbmm.gov.tr", "ayhan.barut@tbmm.gov.tr", "bilal.bilici@tbmm.gov.tr",
+                "muharrem.varli@tbmm.gov.tr", "ayse.sibelersoy@tbmm.gov.tr", "tulay.hatimogullarioruc@tbmm.gov.tr", "sadullah.kisacik@tbmm.gov.tr", "resul.kurt@tbmm.gov.tr", "ishak.sahin@tbmm.gov.tr", "mustafa.alkayis@tbmm.gov.tr", "huseyin.ozhan@tbmm.gov.tr", "abdurrahman.tutdere@tbmm.gov.tr", "ali.ozkaya@tbmm.gov.tr",
+                "ibrahim.yurdunuseven@tbmm.gov.tr", "hasan.arslan@tbmm.gov.tr", "burcu.koksal@tbmm.gov.tr", "mehmet.taytak@tbmm.gov.tr", "hakan.seref.olgun@tbmm.gov.tr", "sirri.sakik@tbmm.gov.tr", "nejla.demir@tbmm.gov.tr", "heval.bozdag@tbmm.gov.tr", "ruken.kilerci@tbmm.gov.tr", "cengiz.aydogdu@tbmm.gov.tr",
+                "huseyin.altinsoy@tbmm.gov.tr", "ramazan.kasli@tbmm.gov.tr", "turan.yaldiz@tbmm.gov.tr", "haluk.ipek@tbmm.gov.tr", "hasan.cilez@tbmm.gov.tr", "resat.karagoz@tbmm.gov.tr", "fuat.oktay@tbmm.gov.tr", "leyla.sahinusta@tbmm.gov.tr", "murat.alparslan@tbmm.gov.tr", "zeynep.yildiz@tbmm.gov.tr",
+                "osman.gokcek@tbmm.gov.tr", "kurtcan.celebi@tbmm.gov.tr", "omer.ileri@tbmm.gov.tr", "asuman.erdogan@tbmm.gov.tr", "lutfiyeselva.cam@tbmm.gov.tr", "orhan.yegin@tbmm.gov.tr", "jale.sarieroglu@tbmm.gov.tr", "ahmet.fethan.baykoc@tbmm.gov.tr", "gamze.tascier@tbmm.gov.tr", "deniz.demir@tbmm.gov.tr",
+                "okan.konuralp@tbmm.gov.tr", "aliye.timisi@tbmm.gov.tr", "sadullah.ergin2@tbmm.gov.tr", "idris.sahin@tbmm.gov.tr", "murat.emir@tbmm.gov.tr", "umut.akdogan@tbmm.gov.tr", "semra.dincer@tbmm.gov.tr", "tekin.bingol@tbmm.gov.tr", "aylin.nazliaka@tbmm.gov.tr", "orsan.kunteroymen@tbmm.gov.tr",
+                "mevlut.karakaya@tbmm.gov.tr", "sadir.durmaz@tbmm.gov.tr", "yildirimtugrul.turkes@tbmm.gov.tr", "koray.aydin@tbmm.gov.tr", "kursad.zorlu@tbmm.gov.tr", "yuksel.arslan@tbmm.gov.tr", "adnan.beker@tbmm.gov.tr", "ahmet.esref.fakibaba@tbmm.gov.tr", "mustafa.nedim.yamali@tbmm.gov.tr", "mesut.dogan@tbmm.gov.tr",
+                "mustafa.kaya@tbmm.gov.tr", "mevlut.cavusoglu@tbmm.gov.tr", "mustafa.kose@tbmm.gov.tr", "tuba.vuralcokal@tbmm.gov.tr", "kemal.celik@tbmm.gov.tr", "atay.uslu@tbmm.gov.tr", "ibrahim.ethem.tas@tbmm.gov.tr", "sururi.corabatir@tbmm.gov.tr", "cavit.ari@tbmm.gov.tr", "aliye.cosar@tbmm.gov.tr",
+
+                "serap.yazici@tbmm.gov.tr", "seref.arpaci@tbmm.gov.tr", "mustafa.erdogan@tbmm.gov.tr", "abdurrahman.baskan@tbmm.gov.tr", "hilmi.durgun@tbmm.gov.tr", "ugur.poyraz@tbmm.gov.tr", "aykut.kaya@tbmm.gov.tr", "hakki.saruhan.oluc@tbmm.gov.tr", "kaan.koc@tbmm.gov.tr", "ozgur.erdem.incesu@tbmm.gov.tr",
+                "faruk.celik@tbmm.gov.tr", "ugur.bayraktutan@tbmm.gov.tr", "mustafasavas@tbmm.gov.tr", "seda.saribas@tbmm.gov.tr", "omer.ozmen@tbmm.gov.tr", "bulent.tezcan@tbmm.gov.tr", "huseyin.yildiz@tbmm.gov.tr", "suleyman.bulbul@tbmm.gov.tr", "evrim.karakoz@tbmm.gov.tr", "omer.karakas@tbmm.gov.tr",
+                "ismail.ok@tbmm.gov.tr", "belgin.uygur@tbmm.gov.tr", "mustafa.canbey@tbmm.gov.tr", "ali.taylan.oztaylan@tbmm.gov.tr", "ensar.aytekin@tbmm.gov.tr", "serkan.sari@tbmm.gov.tr", "burak.dalgin@tbmm.gov.tr", "ekrem.gokce@tbmm.gov.tr", "turhan.comez@tbmm.gov.tr", "yusuf.ziya.aldatmaz@tbmm.gov.tr",
+                "aysu.bankoglu@tbmm.gov.tr", "ferhat.nasiroglu@tbmm.gov.tr", "keskin.bayindir@tbmm.gov.tr", "zeynep.oduncu@tbmm.gov.tr", "mehmet.rustu.tiryaki@tbmm.gov.tr", "serkan.ramanli@tbmm.gov.tr", "orhan.ates@tbmm.gov.tr", "halil.eldemir@tbmm.gov.tr", "yasar.tuzun@tbmm.gov.tr", "feyzi.berdibek@tbmm.gov.tr",
+                "zeki.korkutata@tbmm.gov.tr", "omer.faruk.hulaku@tbmm.gov.tr", "turan.bedirhanoglu@tbmm.gov.tr", "huseyin.olan@tbmm.gov.tr", "semra.caglar.gokalp@tbmm.gov.tr", "yuksel.coskunyurek@tbmm.gov.tr", "turker.ates@tbmm.gov.tr", "ismail.akgul@tbmm.gov.tr", "adem.korkmaz@tbmm.gov.tr", "mustafa.oguz@tbmm.gov.tr",
+                "izzet.akbulut@tbmm.gov.tr", "efkan.ala@tbmm.gov.tr", "refik.ozen@tbmm.gov.tr", "ahmet.kilic@tbmm.gov.tr", "emine.yavuzgozgec@tbmm.gov.tr", "mustafa.varank@tbmm.gov.tr", "ayhan.salman@tbmm.gov.tr", "osman.mesten@tbmm.gov.tr", "muhammet.mufitaydin@tbmm.gov.tr", "emelsu.karakaya@tbmm.gov.tr",
+                "mustafa.yavuz@tbmm.gov.tr", "nurhayat.altacakayisoglu@tbmm.gov.tr", "kayihan.pala@tbmm.gov.tr", "orhan.saribal@tbmm.gov.tr", "hasan.ozturk@tbmm.gov.tr", "mehmet.atmaca@tbmm.gov.tr", "cemalettin.kani.torun@tbmm.gov.tr", "ismet.buyukataman@tbmm.gov.tr", "fevzi.zirhlioglu@tbmm.gov.tr", "selcuk.turkoglu@tbmm.gov.tr",
+                "hasan.toktas@tbmm.gov.tr", "ayhangider@tbmm.gov.tr", "ismet.guneshan@tbmm.gov.tr", "ozgur.ceylan@tbmm.gov.tr", "ridvan.uz@tbmm.gov.tr", "muhammet.emin.akbasoglu@tbmm.gov.tr", "pelin.yilik@tbmm.gov.tr", "yusuf.ahlatci@tbmm.gov.tr", "oguzhan.kaya@tbmm.gov.tr", "mehmet.tasdogen@tbmm.gov.tr",
+
+                "vahit.kayrici@tbmm.gov.tr", "cahit.ozkan@tbmm.gov.tr", "sahin.tin@tbmm.gov.tr", "nilgun.ok@tbmm.gov.tr", "gulizar.bicer.karaca@tbmm.gov.tr", "sema.silkin.un@tbmm.gov.tr", "yasin.ozturk@tbmm.gov.tr", "m.galip.ensarioglu@tbmm.gov.tr", "mehmet.sait.yaz@tbmm.gov.tr", "suna.kepolu.ataman@tbmm.gov.tr",
+                "berdan.ozturk@tbmm.gov.tr", "halide.turkoglu@tbmm.gov.tr", "osman.cengiz.candar@tbmm.gov.tr", "adilet.kaya@tbmm.gov.tr", "serhat.eren@tbmm.gov.tr", "mehmet.kamac@tbmm.gov.tr", "ceylan.akca.cupolo@tbmm.gov.tr", "sezai.temelli@tbmm.gov.tr", "sezgin.tanrikulu@tbmm.gov.tr", "ayse.kesir@tbmm.gov.tr",
+                "ercan.ozturk@tbmm.gov.tr", "talih.ozcan@tbmm.gov.tr", "fatma.aksal@tbmm.gov.tr", "ediz.un@tbmm.gov.tr", "ahmet.baran.yazgan@tbmm.gov.tr", "mehmet.akalin@tbmm.gov.tr", "erol.keles@tbmm.gov.tr", "ejder.acikkapi@tbmm.gov.tr", "mahmut.ridvan.nazirli@tbmm.gov.tr", "gursel.erol@tbmm.gov.tr",
+                "semih.isikver@tbmm.gov.tr", "suleyman.karaman@tbmm.gov.tr", "mustafa.sarigul@tbmm.gov.tr", "selami.altinok@tbmm.gov.tr", "fatma.oncu@tbmm.gov.tr", "mehmet.emin.oz@tbmm.gov.tr", "abdurrahim.firat@tbmm.gov.tr", "kamil.aydin@tbmm.gov.tr", "meral.danisbestas@tbmm.gov.tr", "fatih.donmez@tbmm.gov.tr",
+                "aysen.gurcan@tbmm.gov.tr", "nebi.hatipoglu@tbmm.gov.tr", "utku.cakirozer@tbmm.gov.tr", "jalenur.sullu@tbmm.gov.tr", "ibrahim.arslan@tbmm.gov.tr", "abdulhamit.gul@tbmm.gov.tr", "mehmet.eyup.ozkecici@tbmm.gov.tr", "ali.sahin@tbmm.gov.tr", "derya.bakbak@tbmm.gov.tr", "mesut.bozatli@tbmm.gov.tr",
+                "sahbaz.korkmaz@tbmm.gov.tr", "irfan.capar@tbmm.gov.tr", "bunyamin.bozgeyik@tbmm.gov.tr", "hasan.ozturkmen@tbmm.gov.tr", "melih.meric@tbmm.gov.tr", "ertugrul.kaya@tbmm.gov.tr", "sermet.atay@tbmm.gov.tr", "mehmet.mustafa.gurban@tbmm.gov.tr", "sevda.karaca.demir@tbmm.gov.tr", "nazim.elmas@tbmm.gov.tr",
+                "ali.temur@tbmm.gov.tr", "elvan.isikgecmis@tbmm.gov.tr", "ertugrul.gazi.konal@tbmm.gov.tr", "celalettin.kose@tbmm.gov.tr", "musa.kucuk@tbmm.gov.tr", "vezir.coskun.parlak@tbmm.gov.tr", "oznur.bartin@tbmm.gov.tr", "onur.dusunmez@tbmm.gov.tr", "adem.yesildal@tbmm.gov.tr", "abdulkadir.ozel@tbmm.gov.tr",
+                "huseyin.yayman@tbmm.gov.tr", "kemal.karahan@tbmm.gov.tr", "mehmet.guzelmansur@tbmm.gov.tr", "nermin.yildirim.kara@tbmm.gov.tr", "servet.mullaoglu@tbmm.gov.tr", "necmettin.caliskan@tbmm.gov.tr", "lutfi.kasikci@tbmm.gov.tr", "adnansefik.cirkin@tbmm.gov.tr", "can.atalay@tbmm.gov.tr", "canturk.alagoz@tbmm.gov.tr",
+
+                "yilmaz.hun@tbmm.gov.tr", "mehmetugur.gokgoz@tbmm.gov.tr", "osman.zabun@tbmm.gov.tr", "hikmet.yaglibasar@tbmm.gov.tr", "hasan.basri.sonmez@tbmm.gov.tr", "numan.kurtulmus@tbmm.gov.tr", "murat.kurum@tbmm.gov.tr", "erkan.kandemir@tbmm.gov.tr", "hasan.turan@tbmm.gov.tr", "mustafa.demir@tbmm.gov.tr",
+                "suleyman.soylu@tbmm.gov.tr", "halit.yerebakan@tbmm.gov.tr", "hulki.cevizoglu@tbmm.gov.tr", "tubadurgut@tbmm.gov.tr", "ismail.emrah.karayel@tbmm.gov.tr", "bayram.senocak@tbmm.gov.tr", "cuneyt.yuksel@tbmm.gov.tr", "samil.ayrim@tbmm.gov.tr", "yahya.celik@tbmm.gov.tr", "behcet.suayip.yildiz@tbmm.gov.tr",
+                "sena.nurcelik@tbmm.gov.tr", "rumeysa.kadak@tbmm.gov.tr", "oguz.ucuncu@tbmm.gov.tr", "rabia.ilhan@tbmm.gov.tr", "adem.yildirim@tbmm.gov.tr", "nurettin.alan@tbmm.gov.tr", "nilhan.ayan@tbmm.gov.tr", "seda.goren.boluk@tbmm.gov.tr", "zafer.sirakaya@tbmm.gov.tr", "busra.paker@tbmm.gov.tr",
+                "sevan.sivacioglu@tbmm.gov.tr", "derya.ayaydin@tbmm.gov.tr", "adem.gencer@tbmm.gov.tr", "ozlem.zengin@tbmm.gov.tr", "serkan.bayram@tbmm.gov.tr", "yildiz.konal.surek@tbmm.gov.tr", "ozgur.karabat@tbmm.gov.tr", "ilhan.kesici@tbmm.gov.tr", "gamze.akkusilgezdi@tbmm.gov.tr", "fethi.acikel@tbmm.gov.tr",
+                "gokhan.zeybek@tbmm.gov.tr", "oguz.kaan.salici@tbmm.gov.tr", "namik.tan@tbmm.gov.tr", "yunus.emre@tbmm.gov.tr", "zeynel.emre@tbmm.gov.tr", "turkan.elci@tbmm.gov.tr", "ali.gokcek@tbmm.gov.tr", "suheyla.dinc@tbmm.gov.tr", "enginaltay@tbmm.gov.tr", "erdogan.toprak@tbmm.gov.tr",
+                "dogancan.akgun@tbmm.gov.tr", "cemal.enginyurt@tbmm.gov.tr", "salih.uzun@tbmm.gov.tr", "evrim.rizvanoglu@tbmm.gov.tr", "mustafa.yeneroglu@tbmm.gov.tr", "elvan.kuzucu@tbmm.gov.tr", "hasan.karal@tbmm.gov.tr", "medeni.yilmaz@tbmm.gov.tr", "selim.temurci@tbmm.gov.tr", "bulent.kaya@tbmm.gov.tr",
+                "birol.aydin@tbmm.gov.tr", "dogan.bekin@tbmm.gov.tr", "suat.pamukcu@tbmm.gov.tr", "ali.fazil.kasap@tbmm.gov.tr", "isa.mesih.sahin@tbmm.gov.tr", "celal.adan@tbmm.gov.tr", "izzet.ulviyonter@tbmm.gov.tr", "fetih.yildiz@tbmm.gov.tr", "ismailfaruk.aksu@tbmm.gov.tr", "edibe.sozen@tbmm.gov.tr",
+                "ersin.beyaz@tbmm.gov.tr", "burak.akburak@tbmm.gov.tr", "mustafa.cihan.pacaci@tbmm.gov.tr", "naci.caglar@tbmm.gov.tr", "ayse.sibelyanikoglu@tbmm.gov.tr", "seyithan.izsiz@tbmm.gov.tr", "sirri.sureyya.onder@tbmm.gov.tr", "pervin.buldan@tbmm.gov.tr", "cengiz.cicek@tbmm.gov.tr", "ozgul.saki@tbmm.gov.tr",
+
+                "keziban.konukcu.kok@tbmm.gov.tr", "celal.firat@tbmm.gov.tr", "cicek.otlu@tbmm.gov.tr", "iskender.bayhan@tbmm.gov.tr", "erkan.bas@tbmm.gov.tr", "sera.kadigil@tbmm.gov.tr", "ahmet.sik@tbmm.gov.tr", "zekeriya.yapicioglu@tbmm.gov.tr", "onder.aksakal@tbmm.gov.tr", "mehmet.kasapoglu@tbmm.gov.tr",
+                "mahmut.atilla.kaya@tbmm.gov.tr", "sebnem.bursali@tbmm.gov.tr", "mehmet.ali.celebi@tbmm.gov.tr", "eyup.kadir.inan@tbmm.gov.tr", "alpay.ozalan@tbmm.gov.tr", "ceyda.bolunmez.cankiri@tbmm.gov.tr", "yasar.kirkpinar@tbmm.gov.tr", "yuksel.taskin@tbmm.gov.tr", "ahmet.tuncay.ozkan@tbmm.gov.tr", "sevda.erdan.kilic@tbmm.gov.tr",
+                "murat.bakan@tbmm.gov.tr", "ednan.arslan@tbmm.gov.tr", "seda.kaya.osen@tbmm.gov.tr", "haydar.altintas@tbmm.gov.tr", "gokce.gokcen@tbmm.gov.tr", "riza.turmen@tbmm.gov.tr", "rahmi.askin.tureli@tbmm.gov.tr", "mahir.polat@tbmm.gov.tr", "deniz.yucel@tbmm.gov.tr", "mustafa.bilici@tbmm.gov.tr",
+                "tamer.osmanagaoglu@tbmm.gov.tr", "musavat.dervisoglu@tbmm.gov.tr", "umit.ozlale@tbmm.gov.tr", "husmen.kirkpinar@tbmm.gov.tr", "ibrahim.akin@tbmm.gov.tr", "burcugul.cubuk@tbmm.gov.tr", "vahit.kirisci@tbmm.gov.tr", "omer.oruc.bilal.debdemi@tbmm.gov.tr", "mevlut.kurt@tbmm.gov.tr", "tuba.koksal@tbmm.gov.tr",
+                "mehmet.sahin@tbmm.gov.tr", "ali.oztunc@tbmm.gov.tr", "irfan.karatutlu@tbmm.gov.tr", "zuhal.karakoc.dora@tbmm.gov.tr", "cem.sahin@tbmm.gov.tr", "durmus.ali.keskinkilic@tbmm.gov.tr", "cevdet.akay@tbmm.gov.tr", "selman.oguzhan.eser@tbmm.gov.tr", "osman.saglam@tbmm.gov.tr", "ismail.atakli@tbmm.gov.tr",
+                "adem.calkin@tbmm.gov.tr", "inan.akgun.alp@tbmm.gov.tr", "gulistan.kilickocyigit@tbmm.gov.tr", "halil.ulay@tbmm.gov.tr", "fatma.serap.ekmekci@tbmm.gov.tr", "hasan.baltaci@tbmm.gov.tr", "hulusi.akar@tbmm.gov.tr", "mustafa.elitas@tbmm.gov.tr", "ayse.bohler@tbmm.gov.tr", "saban.copuroglu@tbmm.gov.tr",
+                "murat.cahid.cingi@tbmm.gov.tr", "sayin.bayar.ozsoy@tbmm.gov.tr", "askin.genc@tbmm.gov.tr", "ismail.ozdemir@tbmm.gov.tr", "mustafa.baki.ersoy@tbmm.gov.tr", "dursun.atas@tbmm.gov.tr", "mahmut.arikan@tbmm.gov.tr", "mustafa.kaplan@tbmm.gov.tr", "ahmet.onal@tbmm.gov.tr", "halil.ozturk@tbmm.gov.tr",
+                "ahmet.gokhan.saricam@tbmm.gov.tr", "vecdi.gundogdu@tbmm.gov.tr", "fahri.ozkan@tbmm.gov.tr", "necdet.erkan@tbmm.gov.tr", "metin.ilhan@tbmm.gov.tr", "ahmet.salih.dal@tbmm.gov.tr", "mustafa.demir.kilis@tbmm.gov.tr", "sadettin.hulagu@tbmm.gov.tr", "radiye.sezer.katircioglu@tbmm.gov.tr", "veysel.tipioglu@tbmm.gov.tr",
+
+                "mehmet.akif.yilmaz@tbmm.gov.tr", "cemil.yaman@tbmm.gov.tr", "sami.cakir@tbmm.gov.tr", "muhip.kanko@tbmm.gov.tr", "harun.ozgur.yildizli@tbmm.gov.tr", "nail.ciler@tbmm.gov.tr", "hasan.bitmez@tbmm.gov.tr", "saffet.sancakli@tbmm.gov.tr", "lutfu.turkkan@tbmm.gov.tr", "omer.farukgergerlioglu@tbmm.gov.tr",
+                "tahir.akyurek@tbmm.gov.tr", "orhan.erdem@tbmm.gov.tr", "selman.ozboyaci@tbmm.gov.tr", "meryem.goka@tbmm.gov.tr", "abdullah.agrali@tbmm.gov.tr", "mehmet.baykan@tbmm.gov.tr", "ziya.altunyaldiz@tbmm.gov.tr", "latif.selvi@tbmm.gov.tr", "mustafa.hakki.ozturk@tbmm.gov.tr", "baris.bektas@tbmm.gov.tr",
+                "hasan.ekici@tbmm.gov.tr", "mustafa.kalayci@tbmm.gov.tr", "konur.alp.kocak@tbmm.gov.tr", "ali.yuksel@tbmm.gov.tr", "unal.karaman@tbmm.gov.tr", "adil.bicer@tbmm.gov.tr", "ismail.caglar.bayram@tbmm.gov.tr", "mehmet.demir.kutahya@tbmm.gov.tr", "ahmet.erbas@tbmm.gov.tr", "bulent.tufenkci@tbmm.gov.tr",
+                "ihsan.koca@tbmm.gov.tr", "ina.babuc@tbmm.gov.tr", "abdurrahman.babacan@tbmm.gov.tr", "veli.agbaba@tbmm.gov.tr", "mehmet.celal.fendoglu@tbmm.gov.tr", "bahadir.nahit.yenisehirlioglu@tbmm.gov.tr", "murat.baybatur@tbmm.gov.tr", "tamer.akkal@tbmm.gov.tr", "ahmet.mucahit.arinc@tbmm.gov.tr", "ozgur.ozel@tbmm.gov.tr",
+                "ahmet.vehbi.bakirlioglu@tbmm.gov.tr", "bekir.basevirgen@tbmm.gov.tr", "selma.aliye.kavaf@tbmm.gov.tr", "erkan.akcay@tbmm.gov.tr", "senol.sunat@tbmm.gov.tr", "faruk.kilic@tbmm.gov.tr", "muhammed.adak@tbmm.gov.tr", "salihe.aydeniz@tbmm.gov.tr", "kamuran.tanhan@tbmm.gov.tr", "mithat.sancar@tbmm.gov.tr",
+                "beritan.gunes.altin@tbmm.gov.tr", "george.aslan@tbmm.gov.tr", "nurettin.nebati@tbmm.gov.tr", "ali.kiratli@tbmm.gov.tr", "havva.sibelsuicmez@tbmm.gov.tr", "ali.mahir.basarir@tbmm.gov.tr", "gulcan.kislasaygili@tbmm.gov.tr", "talat.dincer@tbmm.gov.tr", "hasan.ufukcakir@tbmm.gov.tr", "mehmet.emin.ekmen@tbmm.gov.tr",
+                "faruk.dinc@tbmm.gov.tr", "levent.uysal@tbmm.gov.tr", "burhanettin.kocamaz@tbmm.gov.tr", "ali.bozan@tbmm.gov.tr", "perihan.koca@tbmm.gov.tr", "kadem.mete@tbmm.gov.tr", "yakup.otgoz@tbmm.gov.tr", "cumhur.uzun@tbmm.gov.tr", "gizem.ozcan@tbmm.gov.tr", "sureyya.ones.derici@tbmm.gov.tr",
+                "selcuk.ozdag@tbmm.gov.tr", "metin.ergun@tbmm.gov.tr", "mehmet.emin.simsek@tbmm.gov.tr", "semseddin.polat@tbmm.gov.tr", "sumeyye.boz@tbmm.gov.tr", "suleyman.ozgun@tbmm.gov.tr", "emre.caliskan@tbmm.gov.tr", "filiz.kilic@tbmm.gov.tr", "cevahir.uzkurt@tbmm.gov.tr", "omer.fethi.gurer@tbmm.gov.tr",
+
+                "cumali.ince@tbmm.gov.tr", "mahmut.ozer@tbmm.gov.tr", "ibrahim.ufuk.kaynak@tbmm.gov.tr", "mustafa.hamarat@tbmm.gov.tr", "seyit.torun@tbmm.gov.tr", "mustafa.adiguzel@tbmm.gov.tr", "naci.sanliturk@tbmm.gov.tr", "derya.yanik@tbmm.gov.tr", "seyda.gultekin@tbmm.gov.tr", "asu.kaya@tbmm.gov.tr",
+                "devlet.bahceli@tbmm.gov.tr", "muhammed.avni@tbmm.gov.tr", "harun.mermeroglu@tbmm.gov.tr", "tahsin.ocakli@tbmm.gov.tr", "lutfi.bayraktar@tbmm.gov.tr", "cigdem.erdogan@tbmm.gov.tr", "ali.inci@tbmm.gov.tr", "ertugrul.kocacik@tbmm.gov.tr", "murat.kaya@tbmm.gov.tr", "ayca.taskent@tbmm.gov.tr",
+                "muhammed.levent.bulbul@tbmm.gov.tr", "umit.dikbayir@tbmm.gov.tr", "mehmet.mus@tbmm.gov.tr", "cigdem.karaaslan@tbmm.gov.tr", "yusuf.ziya.yilmaz@tbmm.gov.tr", "orhan.kircali@tbmm.gov.tr", "ersan.aksu@tbmm.gov.tr", "murat.can@tbmm.gov.tr", "mehmet.karaman@tbmm.gov.tr", "ilyas.topsakal@tbmm.gov.tr",
+                "erhan.usta@tbmm.gov.tr", "merve.gul@tbmm.gov.tr", "tuncer.bakirhan@tbmm.gov.tr", "sabahat.erdogan.saritas@tbmm.gov.tr", "nazim.mavis@tbmm.gov.tr", "baris.karadeniz@tbmm.gov.tr", "abdullah.guler@tbmm.gov.tr", "hakan.aksu@tbmm.gov.tr", "rukiye.toy@tbmm.gov.tr", "ulas.karasu@tbmm.gov.tr",
+                "ahmet.ozyurek@tbmm.gov.tr", "bekir.bozdag@tbmm.gov.tr", "abdulkadir.eminonen@tbmm.gov.tr", "mehmetali.cevheri@tbmm.gov.tr", "ibrahim.eyyupoglu@tbmm.gov.tr", "hikmet.basak@tbmm.gov.tr", "cevahir.asuman.yazmaci@tbmm.gov.tr", "mehmet.faruk.pinarbasi@tbmm.gov.tr", "abdurrahim.dusak@tbmm.gov.tr", "mahmut.tanal@tbmm.gov.tr",
+                "ibrahim.ozisik@tbmm.gov.tr", "omer.ocalan@tbmm.gov.tr", "ferit.sanyasar@tbmm.gov.tr", "dilan.kuntayan@tbmm.gov.tr", "arslan.tatar@tbmm.gov.tr", "nevroz.uysal.aslan@tbmm.gov.tr", "mehmet.zeki.irmak@tbmm.gov.tr", "aysegul.dogan.dagli@tbmm.gov.tr", "mestan.ozcan@tbmm.gov.tr", "gokhan.diktas@tbmm.gov.tr",
+                "cigdem.koncagul@tbmm.gov.tr", "faik.oztrak@tbmm.gov.tr", "ilhami.ozcan.aygun@tbmm.gov.tr", "cem.avsar@tbmm.gov.tr", "nurten.yontar@tbmm.gov.tr", "selcan.hamamcioglu@tbmm.gov.tr", "yusuf.beyazit@tbmm.gov.tr", "mustafa.arslan@tbmm.gov.tr", "cuneyt.aldemir@tbmm.gov.tr", "kadim.durmaz@tbmm.gov.tr",
+                "yucel.bulut@tbmm.gov.tr", "adil.karaismailoglu@tbmm.gov.tr", "mustafa.sen@tbmm.gov.tr", "yilmaz.buyukaydin@tbmm.gov.tr", "vehbi.koc@tbmm.gov.tr", "sibel.suicmez@tbmm.gov.tr", "yavuz.aydin@tbmm.gov.tr", "ayten.kordu@tbmm.gov.tr", "butcekom@tbmm.gov.tr", "ozelkalem@tbmm.gov.tr"
+            ];
+
+            // Tekilleştirme ve ASCII doğrulama
+            var UNIQUE_EMAILS = [];
+            var seen = {};
+            for (var i = 0; i < RAW_EMAILS.length; i++) {
+                var addr = RAW_EMAILS[i].toLowerCase().trim();
+                if (!seen[addr]) {
+                    seen[addr] = true;
+                    UNIQUE_EMAILS.push(addr);
+                }
             }
-            return { emails: normalizeEmailList(DEFAULT_MP_EMAILS), isCustom: false };
-        }
 
-        // E-posta dizisini 80'er kişilik güvenli BCC gruplarına böl
-        function buildDynamicBatches(emailArray, chunkSize = 80) {
-            const batches = [];
-            for (let i = 0; i < emailArray.length; i += chunkSize) {
-                const chunk = emailArray.slice(i, i + chunkSize);
-                const batchNumber = Math.floor(i / chunkSize) + 1;
-                batches.push({
-                    id: batchNumber,
-                    title: `${batchNumber}. Grup: TBMM Milletvekilleri (${i + 1} - ${i + chunk.length}. Sıra)`,
-                    description: `${chunk.length} milletvekiline eşzamanlı gizli (BCC) gönderim paketi.`,
-                    emails: chunk.join(', '),
-                    count: chunk.length
+            // 7 Gruba Bölme (80'er adreslik paketler)
+            var BATCH_SIZE = 80;
+            var BATCHES = [];
+            for (var start = 0; start < UNIQUE_EMAILS.length; start += BATCH_SIZE) {
+                var slice = UNIQUE_EMAILS.slice(start, start + BATCH_SIZE);
+                var groupNum = Math.floor(start / BATCH_SIZE) + 1;
+                var rangeStart = start + 1;
+                var rangeEnd = start + slice.length;
+                var titleLabel = groupNum === 7
+                    ? groupNum + ". Grup (" + rangeStart + " - " + rangeEnd + ". Milletvekili & Komisyonlar)"
+                    : groupNum + ". Grup (" + rangeStart + " - " + rangeEnd + ". Milletvekili)";
+
+                BATCHES.push({
+                    id: groupNum,
+                    title: titleLabel,
+                    count: slice.length,
+                    bcc: slice.join(", ")
                 });
             }
-            return batches;
-        }
 
-        // LocalStorage Durumu
-        let sentBatches = JSON.parse(localStorage.getItem('fon_sent_batches') || '[]');
-
-        // DOM Elementleri
-        const userNameInput = document.getElementById('userName');
-        const userCityInput = document.getElementById('userCity');
-        const userFundDetailInput = document.getElementById('userFundDetail');
-        const previewSubjectEl = document.getElementById('previewSubject');
-        const previewFullBodyEl = document.getElementById('previewFullBody');
-        const batchesContainer = document.getElementById('batchesContainer');
-        const progressBadge = document.getElementById('progressBadge');
-        const progressBarFill = document.getElementById('progressBarFill');
-        const step2Heading = document.getElementById('step2Heading');
-        const heroTargetCount = document.getElementById('heroTargetCount');
-        const heroBatchInfo = document.getElementById('heroBatchInfo');
-
-        // Toast Bildirim Gösterici
-        let toastTimeout;
-        function showToast(message) {
-            const toast = document.getElementById('toast');
-            const toastMsg = document.getElementById('toast-message');
-            toastMsg.textContent = message;
-            toast.classList.remove('translate-y-20', 'opacity-0');
-            clearTimeout(toastTimeout);
-            toastTimeout = setTimeout(() => {
-                toast.classList.add('translate-y-20', 'opacity-0');
-            }, 3000);
-        }
-
-        // Güvenli Pano Kopyalama (execCommand fallback destekli)
-        function copyToClipboard(text, successMsg) {
-            const textarea = document.createElement('textarea');
-            textarea.value = text;
-            textarea.style.position = 'fixed';
-            textarea.style.opacity = '0';
-            document.body.appendChild(textarea);
-            textarea.focus();
-            textarea.select();
+            var STORAGE_KEY = "fon_magdurlari_sent_groups_v2";
+            var sentIds = [];
             try {
-                document.execCommand('copy');
-                showToast(successMsg);
-            } catch (err) {
-                showToast("Kopyalama başarısız oldu, lütfen metni seçip kopyalayın.");
+                var saved = localStorage.getItem(STORAGE_KEY);
+                if (saved) {
+                    sentIds = JSON.parse(saved);
+                }
+            } catch (e) {
+                sentIds = [];
             }
-            document.body.removeChild(textarea);
-        }
 
-        // E-Posta Konusu ve İçerik Üreticileri
-        function getEmailContent() {
-            const name = userNameInput.value.trim() || "Fon Mağduru Vatandaş";
-            const city = userCityInput.value.trim();
-            const customDetail = userFundDetailInput.value.trim();
-
-            const subject = "Yatırım Fonu Mağdurları Hakkında Gerçekler: 'NYT Ödendi' İllüzyonu ve Anayasa Madde 125 Kapsamında Destek Talebi";
-
-            const personalParagraph = customDetail 
-                ? `\nKİŞİSEL MAĞDURİYET BİLGİM:\n${customDetail}\n` 
-                : "";
-
-            const signatureLine = city ? `${name} (${city})` : name;
-
-            // Tam Mektup (Gmail Web ve Manuel Kopyalama için)
-            const fullBody = `Sayın Milletvekilim,
-
-Devletimizin denetim ve gözetimi altındaki yatırım fonlarında (THF, TLY, DOH, DFI, TMV, TP2, TLV, PRY, PNU, PSE vb.) birikimlerini değerlendiren 455.000'den fazla vatandaş adına size ulaşıyoruz.
-
-12 Ekim 2026 tarihinde Kabine Toplantısı sonrasında milletimize açıkça "1 milyon liraya kadar ANAPARA ödemelerine başlanacak" sözü verilmiş olmasına rağmen; uygulama aşamasında karar metinlerine "ödemeden önceki günkü fon pay değeri" ibaresi eklenerek bu söz fiilen boşa düşürülmüştür.
-
-Bugün Hazine ve Maliye Bakanı Sayın Mehmet Şimşek tarafından kamuoyuna sunulan "377 bin yatırımcı Net Yatırım Tutarını (NYT) aldı" açıklaması sahadaki matematiksel gerçeklerle tamamen çelişmektedir:
-
-1. NYT (Net Yatırım Tutarı) İllüzyonu ve Gerçek Ödeme Oranları:
-NYT, yatırımcının fona yatırdığı toplam paradan çektiği tutar düşüldükten sonra kalan net anaparasını ifade eder. Ancak fonların içi boşaltılıp pay değerleri sıfıra yaklaştırıldıktan sonra yapılan ödemeler, NYT'nin çok küçük bir kesrine denk gelmektedir:
-- THF (Tera Hisse Senedi Fonu): 214 binden fazla yatırımcıya 1 Milyon TL anaparaya karşılık yalnızca %29,04 (290.419 TL) ödenmiş, %70,96'sı buharlaştırılmıştır.
-- TLY (Tera Portföy Birinci Serbest Fon): 102 bin yatırımcıya anaparalarının yalnızca %11,27'si (112.716 TL) ödenmiştir.
-- DOH (Dof Robotik / Serbest Fon): Ödeme oranı %26,84'te (268.428 TL) kalmıştır.
-- DFI (Atlas Portföy Fonu): 47 bin yatırımcı anaparasının sadece %3,28'ini (32.834 TL) alabilmiştir.
-- Para Piyasası Fonları (TP2, TLV, PRY, PNU, PSE): Ödeme üst sınırı 500 bin TL'de tutularak yatırımcıya yalnızca %50 oranında ödeme yapılmıştır.
-- TMV (Algoritmik Stratejiler Serbest Fon): Ortada hiçbir ödeme takvimi dahi bulunmamaktadır.
-Anaparasının %3'ü ile %29'u arasında ödeme alan yüz binlerce vatandaşı "parasının tamamını aldı" şeklinde göstermek açık bir algı yönetimidir.
-${personalParagraph}
-2. Anayasa Madde 125 (Hizmet Kusuru) ve YTM Sorumluluğu:
-Borsa İstanbul, Takasbank, SPK ve BDDK'nın üst düzey yöneticilerinin rüşvet ve suç örgütü soruşturmaları kapsamında tutuklanması, denetim mekanizmasının ağır biçimde felç olduğunu kanıtlamıştır. T.C. Anayasası Madde 125/son fıkra ("İdare, kendi eylem ve işlemlerinden doğan zararı ödemekle yükümlüdür") gereğince bu açık bir kamu hizmet kusurudur. Yatırımcı başına 2.065.145 TL tazmin limiti bulunan Yatırımcı Tazmin Merkezi (YTM) bütçesi ve el konulan mal varlıkları devreye alınarak vatandaşın net anaparası (gerçek NYT) eksiksiz ödenmelidir.
-
-TALEBİMİZ:
-Bu ağır mağduriyetin giderilmesi için TBMM gündemine yazılı soru önergesi ve yasal düzenleme teklifi sunarak 455 bin vatandaşın hakkını savunmanızı saygılarımızla arz ve talep ederiz.
-
-Saygılarımla,
-${signatureLine}`;
-
-            // Kısa Mektup (Mobil mailto: URL karakter limitine takılmaması için)
-            const shortPersonal = customDetail ? `\nMağduriyetim: ${customDetail}\n` : "";
-            const shortBody = `Sayın Milletvekilim,
-
-Yatırım fonlarında (THF, TLY, DOH, DFI, TMV, TP2, TLV) mağdur edilen 455.000+ vatandaş adına yazıyorum.
-
-12 Ekim'de "1 Milyon TL'ye kadar ANAPARA ödenecek" denmesine rağmen, "güncel fon pay değeri" kuralıyla yatırımcılara THF'de %29,04 (290.419 TL), TLY'de %11,27 (112.716 TL), DOH'ta %26,84 (268.428 TL), DFI'da %3,28 (32.834 TL), para piyasası fonlarında 500 bin TL sınırıyla %50 ödeme yapılmış; TMV'de ise hiçbir takvim açıklanmamıştır. Buna rağmen "377 bin kişi NYT (Net Yatırım Tutarı) aldı" denmesi gerçeği yansıtmamaktadır.
-${shortPersonal}
-SPK, BIST, Takasbank ve BDDK yöneticilerinin tutuklandığı bu süreçte yaşanan denetim zafiyeti Anayasa Madde 125 kapsamında açık bir kamu hizmet kusurudur. YTM (2.065.145 TL limit) ve el konulan varlıklar devreye alınarak net anaparamızın eksiksiz ödenmesi için TBMM'de yazılı soru önergesi ve yasal düzenleme desteği vermenizi arz ederim.
-
-Saygılarımla,
-${signatureLine}`;
-
-            return { subject, fullBody, shortBody };
-        }
-
-        // Önizlemeyi ve Buton Linklerini Güncelle
-        function updateUI() {
-            const { subject, fullBody } = getEmailContent();
-            previewSubjectEl.textContent = subject;
-            previewFullBodyEl.textContent = fullBody;
-
-            const emails = getActiveEmails();
-            const batches = buildDynamicBatches(emails, 80);
-
-            // Üst rozet ve sayaçları güncelle
-            heroTargetCount.textContent = `${emails.length} Vekil`;
-            heroBatchInfo.textContent = `${batches.length} Güvenli Gönderim Grubu`;
-            step2Heading.textContent = `${batches.length} Grup Halinde ${emails.length} Milletvekiline Gönder`;
-
-            renderBatches(batches);
-            updateProgressBadge(batches.length);
-        }
-
-        // Gönderim İşaretleyici
-        function markBatchAsSent(batchId) {
-            if (!sentBatches.includes(batchId)) {
-                sentBatches.push(batchId);
-                localStorage.setItem('fon_sent_batches', JSON.stringify(sentBatches));
-                updateUI();
+            function saveSentIds() {
+                try {
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(sentIds));
+                } catch (e) {}
             }
-        }
 
-        function toggleBatchStatus(batchId) {
-            if (sentBatches.includes(batchId)) {
-                sentBatches = sentBatches.filter(id => id !== batchId);
-            } else {
-                sentBatches.push(batchId);
+            function showToast(msg) {
+                var toast = document.getElementById("toast");
+                var toastText = document.getElementById("toastText");
+                if (!toast || !toastText) return;
+                toastText.textContent = msg;
+                toast.classList.remove("translate-y-24", "opacity-0");
+                clearTimeout(window.__toastTimer);
+                window.__toastTimer = setTimeout(function () {
+                    toast.classList.add("translate-y-24", "opacity-0");
+                }, 2800);
             }
-            localStorage.setItem('fon_sent_batches', JSON.stringify(sentBatches));
-            updateUI();
-        }
 
-        function resetProgress() {
-            sentBatches = [];
-            localStorage.removeItem('fon_sent_batches');
-            updateUI();
-            showToast("Gönderim ilerlemesi sıfırlandı.");
-        }
-
-        function updateProgressBadge(totalBatches) {
-            const validSentCount = sentBatches.filter(id => id <= totalBatches).length;
-            progressBadge.textContent = `${validSentCount} / ${totalBatches} Grup`;
-            const pct = totalBatches > 0 ? Math.round((validSentCount / totalBatches) * 100) : 0;
-            progressBarFill.style.width = `${pct}%`;
-
-            if (validSentCount === totalBatches && totalBatches > 0) {
-                progressBadge.classList.remove('text-navy-900');
-                progressBadge.classList.add('text-emerald-600');
-            } else {
-                progressBadge.classList.add('text-navy-900');
-                progressBadge.classList.remove('text-emerald-600');
+            function copyText(text, successMsg) {
+                var el = document.createElement("textarea");
+                el.value = text;
+                el.setAttribute("readonly", "");
+                el.style.position = "fixed";
+                el.style.left = "-9999px";
+                document.body.appendChild(el);
+                el.select();
+                try {
+                    document.execCommand("copy");
+                    showToast(successMsg);
+                } catch (err) {
+                    showToast("Kopyalama başarısız oldu.");
+                }
+                document.body.removeChild(el);
             }
-        }
 
-        // Grup Kartlarını Render Et
-        function renderBatches(batches) {
-            const { subject, fullBody, shortBody } = getEmailContent();
-            const encodedSubject = encodeURIComponent(subject);
-            const encodedShortBody = encodeURIComponent(shortBody);
-            const encodedFullBody = encodeURIComponent(fullBody);
-
-            batchesContainer.innerHTML = batches.map(batch => {
-                const emailCount = batch.count;
-                const isSent = sentBatches.includes(batch.id);
-                const encodedBcc = encodeURIComponent(batch.emails);
-
-                // Mailto ve Gmail Web URL'leri
-                const mailtoHref = `mailto:?bcc=${encodedBcc}&subject=${encodedSubject}&body=${encodedShortBody}`;
-                const gmailWebHref = `https://mail.google.com/mail/?view=cm&fs=1&bcc=${encodedBcc}&su=${encodedSubject}&body=${encodedFullBody}`;
-
-                return `
-                <div class="bg-white rounded-2xl p-5 sm:p-6 shadow-sm border transition-all ${isSent ? 'border-emerald-300 bg-emerald-50/30' : 'border-slate-200 hover:border-slate-300'}">
-                    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-                        <!-- Sol Bilgi -->
-                        <div class="space-y-1.5">
-                            <div class="flex flex-wrap items-center gap-2">
-                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-bold ${isSent ? 'bg-emerald-100 text-emerald-800' : 'bg-navy-900 text-white'}">
-                                    ${emailCount} Adres (BCC)
-                                </span>
-                                <h3 class="font-bold text-base sm:text-lg text-navy-900">${batch.title}</h3>
-                                ${isSent ? '<span class="inline-flex items-center gap-1 text-xs font-bold text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-full">✓ Gönderildi İşaretlendi</span>' : ''}
-                            </div>
-                            <p class="text-xs sm:text-sm text-slate-600">${batch.description}</p>
-                        </div>
-
-                        <!-- Sağ Aksiyon Butonları -->
-                        <div class="flex flex-wrap items-center gap-2.5 shrink-0">
-                            <!-- Gmail Web Butonu -->
-                            <a href="${gmailWebHref}" target="_blank" rel="noopener noreferrer" onclick="markBatchAsSent(${batch.id})"
-                               class="inline-flex items-center justify-center gap-2 bg-crimson-600 hover:bg-crimson-700 text-white font-semibold text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow-sm transition">
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                                <span>Gmail Web ile Aç</span>
-                            </a>
-
-                            <!-- Varsayılan Mail Uygulaması Butonu -->
-                            <a href="${mailtoHref}" onclick="markBatchAsSent(${batch.id})"
-                               class="inline-flex items-center justify-center gap-2 bg-navy-900 hover:bg-navy-800 text-white font-semibold text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow-sm transition">
-                                <span>Mail Uygulamasıyla Aç</span>
-                            </a>
-
-                            <!-- Adresleri Kopyala (Yedek) -->
-                            <button type="button" onclick="copyBatchEmails(${batch.id})"
-                               class="inline-flex items-center justify-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-slate-200 transition"
-                               title="Bu gruptaki tüm e-posta adreslerini kopyala">
-                                <span>BCC Adreslerini Kopyala</span>
-                            </button>
-
-                            <!-- Metni Kopyala -->
-                            <button type="button" onclick="copyText('fullBody')"
-                               class="inline-flex items-center justify-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-slate-200 transition"
-                               title="Dilekçe metnini panoya kopyala">
-                                <span>Metni Kopyala</span>
-                            </button>
-
-                            <!-- Durum Checkbox -->
-                            <button type="button" onclick="toggleBatchStatus(${batch.id})"
-                               class="inline-flex items-center justify-center w-9 h-9 rounded-xl border ${isSent ? 'bg-emerald-600 border-emerald-600 text-white' : 'bg-white border-slate-300 text-slate-400 hover:text-slate-600'} transition"
-                               title="Gönderildi olarak işaretle / kaldır">
-                                ✓
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                `;
-            }).join('');
-        }
-
-        // Kopyalama Yardımcıları
-        function copyBatchEmails(batchId) {
-            const emails = getActiveEmails();
-            const batches = buildDynamicBatches(emails, 80);
-            const batch = batches.find(b => b.id === batchId);
-            if (batch) {
-                copyToClipboard(batch.emails, `${batch.id}. Grup (${batch.count} vekil adresi) panoya kopyalandı!`);
+            function markAsSent(groupId) {
+                if (sentIds.indexOf(groupId) === -1) {
+                    sentIds.push(groupId);
+                    saveSentIds();
+                    renderGroups();
+                }
             }
-        }
 
-        function copyText(type) {
-            const { subject, fullBody } = getEmailContent();
-            if (type === 'subject') {
-                copyToClipboard(subject, "E-posta konusu panoya kopyalandı!");
-            } else {
-                copyToClipboard(fullBody, "Tam mektup metni panoya kopyalandı!");
+            function updateProgress() {
+                var total = BATCHES.length;
+                var done = sentIds.length;
+                var pct = total > 0 ? Math.round((done / total) * 100) : 0;
+                var progressText = document.getElementById("progressText");
+                var progressBar = document.getElementById("progressBar");
+                if (progressText) {
+                    progressText.textContent = done + " / " + total + " Grup Tamamlandı";
+                }
+                if (progressBar) {
+                    progressBar.style.width = pct + "%";
+                }
             }
-        }
 
-        // Paylaşım Fonksiyonları
-        function shareOnX() {
-            const text = encodeURIComponent("455.000 Fon Mağduru TBMM'ye Sesleniyor! 📢\n\n'NYT ödendi' illüzyonuna karşı 7 grup halinde 550+ Milletvekiline tek tıkla e-posta gönderiyoruz. Sen de katıl, hakkımızı arayalım!\n\n#KamuSuçluKamuÖdesin");
-            const url = encodeURIComponent(window.location.href);
-            window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank', 'noopener,noreferrer');
-        }
+            function renderGroups() {
+                var container = document.getElementById("groupsList");
+                if (!container) return;
 
-        function shareOnWhatsApp() {
-            const text = encodeURIComponent(`455.000 Fon Mağduru olarak TBMM'deki 550+ Milletvekiline tek tıkla e-posta gönderiyoruz. Kopyala-yapıştırla uğraşmadan tek tıkla sen de destek ol:\n${window.location.href}`);
-            window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank', 'noopener,noreferrer');
-        }
+                var encodedSubject = encodeURIComponent(EMAIL_SUBJECT);
+                var encodedFullBody = encodeURIComponent(FULL_BODY);
+                var encodedShortBody = encodeURIComponent(SHORT_BODY);
 
-        function copyPageLink() {
-            copyToClipboard(window.location.href, "Kampanya sayfa bağlantısı kopyalandı!");
-        }
+                var html = "";
+                for (var i = 0; i < BATCHES.length; i++) {
+                    var b = BATCHES[i];
+                    var isSent = sentIds.indexOf(b.id) !== -1;
+                    var encodedBcc = encodeURIComponent(b.bcc);
 
-        // Önizleme Aç/Kapa Paneli (Mobil ve Masaüstü Uyumlu)
-        const togglePreviewBtn = document.getElementById('togglePreviewBtn');
-        const previewContainer = document.getElementById('previewContainer');
-        const previewChevron = document.getElementById('previewChevron');
-        const togglePreviewLabel = document.getElementById('togglePreviewLabel');
+                    var gmailUrl = "https://mail.google.com/mail/?view=cm&fs=1&bcc=" + encodedBcc + "&su=" + encodedSubject + "&body=" + encodedFullBody;
+                    var mailtoUrl = "mailto:?bcc=" + encodedBcc + "&subject=" + encodedSubject + "&body=" + encodedShortBody;
 
-        if (togglePreviewBtn && previewContainer) {
-            togglePreviewBtn.addEventListener('click', function () {
-                const isCurrentlyHidden = previewContainer.style.display === 'none' || previewContainer.classList.contains('hidden');
-                if (isCurrentlyHidden) {
-                    previewContainer.classList.remove('hidden');
-                    previewContainer.style.display = 'block';
-                    togglePreviewBtn.setAttribute('aria-expanded', 'true');
-                    if (previewChevron) previewChevron.classList.add('rotate-180');
-                    if (togglePreviewLabel) togglePreviewLabel.textContent = 'E-Posta Önizlemesini Gizle';
-                } else {
-                    previewContainer.style.display = 'none';
-                    togglePreviewBtn.setAttribute('aria-expanded', 'false');
-                    if (previewChevron) previewChevron.classList.remove('rotate-180');
-                    if (togglePreviewLabel) togglePreviewLabel.textContent = 'Gönderilecek E-Posta Metnini Önizle & Kopyala';
+                    var cardBorder = isSent
+                        ? "border-emerald-400 bg-emerald-50/40"
+                        : "border-slate-200 bg-white";
+
+                    var badgeHtml = isSent
+                        ? '<span class="inline-flex items-center gap-1 text-xs font-bold text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-full">✓ Gönderildi İşaretlendi</span>'
+                        : '<span class="inline-flex items-center text-xs font-semibold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full">' + b.count + ' Adres (BCC)</span>';
+
+                    html += '<div class="rounded-2xl p-4 sm:p-5 shadow-sm border transition ' + cardBorder + '">' +
+                        '<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3.5">' +
+                            '<div class="space-y-1">' +
+                                '<div class="flex flex-wrap items-center gap-2">' +
+                                    '<h2 class="font-extrabold text-base sm:text-lg text-slate-900">' + b.title + '</h2>' +
+                                    badgeHtml +
+                                '</div>' +
+                            '</div>' +
+                            '<div class="flex flex-wrap items-center gap-2">' +
+                                '<a href="' + gmailUrl + '" target="_blank" rel="noopener noreferrer" data-send-id="' + b.id + '" ' +
+                                    'class="inline-flex items-center justify-center gap-1.5 bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow-sm transition">' +
+                                    '<span>Gmail ile Gönder</span>' +
+                                '</a>' +
+                                '<a href="' + mailtoUrl + '" data-send-id="' + b.id + '" ' +
+                                    'class="inline-flex items-center justify-center gap-1.5 bg-blue-600 hover:bg-blue-700 active:scale-[0.99] text-white font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow-sm transition">' +
+                                    '<span>Mail Uygulaması ile Gönder</span>' +
+                                '</a>' +
+                                '<button type="button" data-copy-id="' + b.id + '" ' +
+                                    'class="inline-flex items-center justify-center bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-slate-300 transition">' +
+                                    'Adresleri Kopyala' +
+                                '</button>' +
+                            '</div>' +
+                        '</div>' +
+                    '</div>';
+                }
+
+                container.innerHTML = html;
+                updateProgress();
+            }
+
+            // Sabit Metinleri Doldur
+            document.getElementById("subjectDisplay").textContent = EMAIL_SUBJECT;
+            document.getElementById("bodyDisplay").textContent = FULL_BODY;
+            document.getElementById("totalMpBadge").textContent = UNIQUE_EMAILS.length + " Milletvekili • " + BATCHES.length + " Grup";
+
+            // Grup Kartlarını Hemen Çiz
+            renderGroups();
+
+            // Event Delegation ile Güvenli Tıklama Yönetimi
+            document.getElementById("groupsList").addEventListener("click", function (e) {
+                var sendLink = e.target.closest("[data-send-id]");
+                if (sendLink) {
+                    var id = parseInt(sendLink.getAttribute("data-send-id"), 10);
+                    markAsSent(id);
+                    return;
+                }
+
+                var copyBtn = e.target.closest("[data-copy-id]");
+                if (copyBtn) {
+                    var copyId = parseInt(copyBtn.getAttribute("data-copy-id"), 10);
+                    for (var i = 0; i < BATCHES.length; i++) {
+                        if (BATCHES[i].id === copyId) {
+                            copyText(BATCHES[i].bcc, copyId + ". Grup (" + BATCHES[i].count + " adres) kopyalandı!");
+                            break;
+                        }
+                    }
                 }
             });
-        }
 
-        // Input Dinleyicileri
-        [userNameInput, userCityInput, userFundDetailInput].forEach(el => {
-            if (el) {
-                el.addEventListener('input', updateUI);
-            }
-        });
+            document.getElementById("copySubjectBtn").addEventListener("click", function () {
+                copyText(EMAIL_SUBJECT, "E-posta konusu kopyalandı!");
+            });
 
-        // Sayfa Yüklendiğinde Başlat
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', updateUI);
-        } else {
-            updateUI();
-        }
+            document.getElementById("copyBodyBtn").addEventListener("click", function () {
+                copyText(FULL_BODY, "Dilekçe metni kopyalandı!");
+            });
+
+            document.getElementById("resetBtn").addEventListener("click", function () {
+                sentIds = [];
+                saveSentIds();
+                renderGroups();
+                showToast("Gönderim işaretleri sıfırlandı.");
+            });
+
+            document.getElementById("shareWaBtn").addEventListener("click", function () {
+                var text = encodeURIComponent("455.000 Fon Mağduru TBMM'ye Sesleniyor! 7 grup halinde 550+ Milletvekiline tek tıkla e-posta gönderiyoruz. Sen de katıl:\n" + window.location.href);
+                window.open("https://api.whatsapp.com/send?text=" + text, "_blank", "noopener,noreferrer");
+            });
+
+            document.getElementById("shareXBtn").addEventListener("click", function () {
+                var text = encodeURIComponent("455.000 Fon Mağduru TBMM'ye Sesleniyor! 550+ Milletvekiline tek tıkla e-posta gönderiyoruz. Sen de destek ol! #KamuSuçluKamuÖdesin");
+                var url = encodeURIComponent(window.location.href);
+                window.open("https://twitter.com/intent/tweet?text=" + text + "&url=" + url, "_blank", "noopener,noreferrer");
+            });
+
+            document.getElementById("copyLinkBtn").addEventListener("click", function () {
+                copyText(window.location.href, "Sayfa bağlantısı kopyalandı!");
+            });
+        })();
     </script>
 </body>
 </html>
-```
