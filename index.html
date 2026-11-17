@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -127,12 +128,15 @@
 
                 <!-- Canlı Önizleme Aç/Kapa -->
                 <div class="mt-5 pt-4 border-t border-slate-100">
-                    <button type="button" id="togglePreviewBtn" class="inline-flex items-center gap-2 text-sm font-semibold text-navy-900 hover:text-crimson-600 transition">
-                        <svg id="previewChevron" class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        <span>Gönderilecek E-Posta Metnini Önizle & Kopyala</span>
+                    <button type="button" id="togglePreviewBtn" aria-expanded="false" aria-controls="previewContainer" class="w-full sm:w-auto inline-flex items-center justify-between sm:justify-start gap-2.5 px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200/80 text-sm font-semibold text-navy-900 hover:text-crimson-600 transition cursor-pointer select-none">
+                        <span class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-crimson-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                            <span id="togglePreviewLabel">Gönderilecek E-Posta Metnini Önizle & Kopyala</span>
+                        </span>
+                        <svg id="previewChevron" class="w-4 h-4 transform transition-transform duration-200 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
 
-                    <div id="previewContainer" class="hidden mt-4 space-y-4">
+                    <div id="previewContainer" style="display: none;" class="mt-4 space-y-4">
                         <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
                             <div class="flex items-center justify-between gap-2 mb-2">
                                 <span class="text-xs font-bold uppercase text-slate-500">E-Posta Konusu:</span>
@@ -150,7 +154,7 @@
                                     Tam Metni Kopyala
                                 </button>
                             </div>
-                            <pre id="previewFullBody" class="text-xs sm:text-sm text-slate-700 whitespace-pre-wrap font-sans leading-relaxed max-h-80 overflow-y-auto pr-2"></pre>
+                            <pre id="previewFullBody" class="text-xs sm:text-sm text-slate-700 whitespace-pre-wrap font-sans leading-relaxed max-h-96 overflow-y-auto pr-2"></pre>
                         </div>
                     </div>
                 </div>
@@ -213,40 +217,6 @@
                     <button type="button" onclick="copyPageLink()" class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold text-sm px-4 py-3 rounded-xl transition">
                         <span>Bağlantıyı Kopyala</span>
                     </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Nasıl Yayınlanır? (Açılır Rehber) -->
-        <section class="bg-white rounded-2xl border border-slate-200 overflow-hidden">
-            <button type="button" id="toggleDeployBtn" class="w-full px-5 sm:px-6 py-4 flex items-center justify-between text-left hover:bg-slate-50 transition">
-                <div class="flex items-center gap-2.5">
-                    <span class="text-lg">🚀</span>
-                    <span class="font-bold text-sm sm:text-base text-navy-900">Bu Sayfayı 1 Dakikada Ücretsiz Nasıl Yayınlarsınız? (Netlify / GitHub Pages)</span>
-                </div>
-                <svg id="deployChevron" class="w-5 h-5 text-slate-400 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-            </button>
-            <div id="deployContainer" class="hidden px-5 sm:px-6 pb-6 pt-2 border-t border-slate-100 text-sm text-slate-600 space-y-4">
-                <p>Bu tek sayfalık HTML dosyasını hiçbir sunucu ücreti ödemeden, sınırsız trafikle herkese açık bir web linki haline getirebilirsiniz:</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
-                        <h3 class="font-bold text-navy-900 mb-2">Yöntem 1: Netlify Drop (En Hızlı - 30 Saniye)</h3>
-                        <ol class="list-decimal list-inside space-y-1.5 text-xs sm:text-sm">
-                            <li>Bu dosyayı bilgisayarınıza <code class="bg-slate-200 px-1.5 py-0.5 rounded font-mono">index.html</code> adıyla kaydedin.</li>
-                            <li><strong>app.netlify.com/drop</strong> adresine gidin (ücretsiz hesap açabilirsiniz).</li>
-                            <li><code class="bg-slate-200 px-1.5 py-0.5 rounded font-mono">index.html</code> dosyasını sürükleyip ekrana bırakın.</li>
-                            <li>Size anında <code class="bg-slate-200 px-1.5 py-0.5 rounded font-mono">https://....netlify.app</code> şeklinde paylaşılabilir bir link verecektir.</li>
-                        </ol>
-                    </div>
-                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
-                        <h3 class="font-bold text-navy-900 mb-2">Yöntem 2: GitHub Pages (Kalıcı & Kurumsal)</h3>
-                        <ol class="list-decimal list-inside space-y-1.5 text-xs sm:text-sm">
-                            <li>GitHub'da ücretsiz yeni bir depo (Repository) oluşturun (Örn: <code class="bg-slate-200 px-1.5 py-0.5 rounded font-mono">fon-magdurlari</code>).</li>
-                            <li>İçine <code class="bg-slate-200 px-1.5 py-0.5 rounded font-mono">index.html</code> dosyasını yükleyin.</li>
-                            <li><strong>Settings &gt; Pages</strong> sekmesinden Branch olarak <code class="bg-slate-200 px-1.5 py-0.5 rounded font-mono">main</code> seçip kaydedin.</li>
-                            <li>Sayfanız 1 dakika içinde ücretsiz olarak yayına alınacaktır.</li>
-                        </ol>
-                    </div>
                 </div>
             </div>
         </section>
@@ -486,57 +456,8 @@
         const progressBadge = document.getElementById('progressBadge');
         const progressBarFill = document.getElementById('progressBarFill');
         const step2Heading = document.getElementById('step2Heading');
-        const activeListBadge = document.getElementById('activeListBadge');
         const heroTargetCount = document.getElementById('heroTargetCount');
         const heroBatchInfo = document.getElementById('heroBatchInfo');
-        const extractStatusText = document.getElementById('extractStatusText');
-
-        // TBMM Sayfasından Yapıştırılan Metinden Adres Ayıklama
-        function extractAndApplyTbmmEmails() {
-            const rawText = document.getElementById('rawTbmmInput').value;
-            if (!rawText.trim()) {
-                showToast("Lütfen önce TBMM sayfasından kopyaladığınız içeriği kutuya yapıştırın.");
-                return;
-            }
-            const matches = rawText.match(/[a-zA-Z0-9._%+-çğıöşüÇĞİÖŞÜ]+@tbmm\.gov\.tr/gi) || [];
-            const uniqueEmails = normalizeEmailList(matches);
-
-            if (uniqueEmails.length === 0) {
-                showToast("Yapıştırılan metinde geçerli bir @tbmm.gov.tr adresi bulunamadı.");
-                return;
-            }
-
-            localStorage.setItem('fon_custom_tbmm_emails', JSON.stringify(uniqueEmails));
-            sentBatches = [];
-            localStorage.setItem('fon_sent_batches', JSON.stringify(sentBatches));
-            extractStatusText.textContent = `✓ ${uniqueEmails.length} benzersiz vekil adresi başarıyla içe aktarıldı!`;
-            showToast(`${uniqueEmails.length} adet güncel TBMM e-posta adresi yüklendi ve gruplandı!`);
-            updateUI();
-        }
-
-        // Varsayılan 550+ Listeye Geri Dön
-        function resetToDefaultList() {
-            localStorage.removeItem('fon_custom_tbmm_emails');
-            document.getElementById('rawTbmmInput').value = '';
-            sentBatches = [];
-            localStorage.setItem('fon_sent_batches', JSON.stringify(sentBatches));
-            extractStatusText.textContent = '';
-            showToast("Varsayılan 550+ TBMM milletvekili listesine dönüldü.");
-            updateUI();
-        }
-        ];
-
-        // LocalStorage Durumu
-        let sentBatches = JSON.parse(localStorage.getItem('fon_sent_batches') || '[]');
-
-        // DOM Elementleri
-        const userNameInput = document.getElementById('userName');
-        const userCityInput = document.getElementById('userCity');
-        const userFundDetailInput = document.getElementById('userFundDetail');
-        const previewSubjectEl = document.getElementById('previewSubject');
-        const previewFullBodyEl = document.getElementById('previewFullBody');
-        const batchesContainer = document.getElementById('batchesContainer');
-        const progressBadge = document.getElementById('progressBadge');
 
         // Toast Bildirim Gösterici
         let toastTimeout;
@@ -586,22 +507,24 @@
             // Tam Mektup (Gmail Web ve Manuel Kopyalama için)
             const fullBody = `Sayın Milletvekilim,
 
-Devletimizin denetim ve gözetimi altındaki yatırım fonlarında (THF, TLY, DOH, DFI, TMV vb.) birikimlerini değerlendiren 455.000'den fazla vatandaş adına size ulaşıyoruz.
+Devletimizin denetim ve gözetimi altındaki yatırım fonlarında (THF, TLY, DOH, DFI, TMV, TP2, TLV, PRY, PNU, PSE vb.) birikimlerini değerlendiren 455.000'den fazla vatandaş adına size ulaşıyoruz.
 
 12 Ekim 2026 tarihinde Kabine Toplantısı sonrasında milletimize açıkça "1 milyon liraya kadar ANAPARA ödemelerine başlanacak" sözü verilmiş olmasına rağmen; uygulama aşamasında karar metinlerine "ödemeden önceki günkü fon pay değeri" ibaresi eklenerek bu söz fiilen boşa düşürülmüştür.
 
-Bugün ekonomi yönetimi tarafından kamuoyuna sunulan "377 bin yatırımcı Net Yatırım Tutarını (NYT) aldı" açıklaması sahadaki matematiksel gerçeklerle tamamen çelişmektedir:
+Bugün Hazine ve Maliye Bakanı Sayın Mehmet Şimşek tarafından kamuoyuna sunulan "377 bin yatırımcı Net Yatırım Tutarını (NYT) aldı" açıklaması sahadaki matematiksel gerçeklerle tamamen çelişmektedir:
 
-1. NYT İllüzyonu ve Gerçek Ödeme Oranları:
-- THF (Tera Hisse Senedi Fonu): 214 binden fazla yatırımcıya anaparalarının yalnızca %29,04'ü ödenmiş, %70,96'sı buharlaştırılmıştır.
-- TLY (Tera Portföy Birinci Serbest Fon): 102 bin yatırımcıya anaparalarının yalnızca %11,27'si ödenmiştir.
-- DOH (Dof Robotik / Serbest Fon): Ödeme oranı %26,84'te kalmıştır.
-- DFI (Atlas Portföy Fonu): 47 bin yatırımcı anaparasının sadece %3,28'ini alabilmiştir.
+1. NYT (Net Yatırım Tutarı) İllüzyonu ve Gerçek Ödeme Oranları:
+NYT, yatırımcının fona yatırdığı toplam paradan çektiği tutar düşüldükten sonra kalan net anaparasını ifade eder. Ancak fonların içi boşaltılıp pay değerleri sıfıra yaklaştırıldıktan sonra yapılan ödemeler, NYT'nin çok küçük bir kesrine denk gelmektedir:
+- THF (Tera Hisse Senedi Fonu): 214 binden fazla yatırımcıya 1 Milyon TL anaparaya karşılık yalnızca %29,04 (290.419 TL) ödenmiş, %70,96'sı buharlaştırılmıştır.
+- TLY (Tera Portföy Birinci Serbest Fon): 102 bin yatırımcıya anaparalarının yalnızca %11,27'si (112.716 TL) ödenmiştir.
+- DOH (Dof Robotik / Serbest Fon): Ödeme oranı %26,84'te (268.428 TL) kalmıştır.
+- DFI (Atlas Portföy Fonu): 47 bin yatırımcı anaparasının sadece %3,28'ini (32.834 TL) alabilmiştir.
+- Para Piyasası Fonları (TP2, TLV, PRY, PNU, PSE): Ödeme üst sınırı 500 bin TL'de tutularak yatırımcıya yalnızca %50 oranında ödeme yapılmıştır.
 - TMV (Algoritmik Stratejiler Serbest Fon): Ortada hiçbir ödeme takvimi dahi bulunmamaktadır.
-Anaparasının %3'ü ile %29'u arasında ödeme alan yüz binlerce vatandaşı "parasının tamamını aldı" şeklinde göstermek açık bir bilgi kirliliğidir.
+Anaparasının %3'ü ile %29'u arasında ödeme alan yüz binlerce vatandaşı "parasının tamamını aldı" şeklinde göstermek açık bir algı yönetimidir.
 ${personalParagraph}
 2. Anayasa Madde 125 (Hizmet Kusuru) ve YTM Sorumluluğu:
-Borsa İstanbul, Takasbank, SPK ve BDDK'nın üst düzey yöneticilerinin rüşvet ve suç örgütü soruşturmaları kapsamında tutuklanması, denetim mekanizmasının ağır biçimde felç olduğunu kanıtlamıştır. T.C. Anayasası Madde 125/son fıkra ("İdare, kendi eylem ve işlemlerinden doğan zararı ödemekle yükümlüdür") gereğince bu açık bir kamu hizmet kusurudur. Yatırımcı başına 2.065.145 TL tazmin limiti bulunan Yatırımcı Tazmin Merkezi (YTM) bütçesi ve el konulan mal varlıkları devreye alınarak vatandaşın net anaparası eksiksiz ödenmelidir.
+Borsa İstanbul, Takasbank, SPK ve BDDK'nın üst düzey yöneticilerinin rüşvet ve suç örgütü soruşturmaları kapsamında tutuklanması, denetim mekanizmasının ağır biçimde felç olduğunu kanıtlamıştır. T.C. Anayasası Madde 125/son fıkra ("İdare, kendi eylem ve işlemlerinden doğan zararı ödemekle yükümlüdür") gereğince bu açık bir kamu hizmet kusurudur. Yatırımcı başına 2.065.145 TL tazmin limiti bulunan Yatırımcı Tazmin Merkezi (YTM) bütçesi ve el konulan mal varlıkları devreye alınarak vatandaşın net anaparası (gerçek NYT) eksiksiz ödenmelidir.
 
 TALEBİMİZ:
 Bu ağır mağduriyetin giderilmesi için TBMM gündemine yazılı soru önergesi ve yasal düzenleme teklifi sunarak 455 bin vatandaşın hakkını savunmanızı saygılarımızla arz ve talep ederiz.
@@ -613,9 +536,9 @@ ${signatureLine}`;
             const shortPersonal = customDetail ? `\nMağduriyetim: ${customDetail}\n` : "";
             const shortBody = `Sayın Milletvekilim,
 
-Yatırım fonlarında (THF, TLY, DOH, DFI, TMV) mağdur edilen 455.000+ vatandaş adına yazıyorum.
+Yatırım fonlarında (THF, TLY, DOH, DFI, TMV, TP2, TLV) mağdur edilen 455.000+ vatandaş adına yazıyorum.
 
-12 Ekim'de "1 Milyon TL'ye kadar ANAPARA ödenecek" denmesine rağmen, "güncel fon pay değeri" kuralıyla yatırımcılara THF'de %29,04, TLY'de %11,27, DOH'ta %26,84, DFI'da %3,28 ödeme yapılmış; TMV'de ise hiçbir takvim açıklanmamıştır. Buna rağmen "377 bin kişi NYT (Net Yatırım Tutarı) aldı" denmesi gerçeği yansıtmamaktadır.
+12 Ekim'de "1 Milyon TL'ye kadar ANAPARA ödenecek" denmesine rağmen, "güncel fon pay değeri" kuralıyla yatırımcılara THF'de %29,04 (290.419 TL), TLY'de %11,27 (112.716 TL), DOH'ta %26,84 (268.428 TL), DFI'da %3,28 (32.834 TL), para piyasası fonlarında 500 bin TL sınırıyla %50 ödeme yapılmış; TMV'de ise hiçbir takvim açıklanmamıştır. Buna rağmen "377 bin kişi NYT (Net Yatırım Tutarı) aldı" denmesi gerçeği yansıtmamaktadır.
 ${shortPersonal}
 SPK, BIST, Takasbank ve BDDK yöneticilerinin tutuklandığı bu süreçte yaşanan denetim zafiyeti Anayasa Madde 125 kapsamında açık bir kamu hizmet kusurudur. YTM (2.065.145 TL limit) ve el konulan varlıklar devreye alınarak net anaparamızın eksiksiz ödenmesi için TBMM'de yazılı soru önergesi ve yasal düzenleme desteği vermenizi arz ederim.
 
@@ -631,16 +554,13 @@ ${signatureLine}`;
             previewSubjectEl.textContent = subject;
             previewFullBodyEl.textContent = fullBody;
 
-            const { emails, isCustom } = getActiveEmails();
+            const emails = getActiveEmails();
             const batches = buildDynamicBatches(emails, 80);
 
             // Üst rozet ve sayaçları güncelle
             heroTargetCount.textContent = `${emails.length} Vekil`;
             heroBatchInfo.textContent = `${batches.length} Güvenli Gönderim Grubu`;
             step2Heading.textContent = `${batches.length} Grup Halinde ${emails.length} Milletvekiline Gönder`;
-            activeListBadge.textContent = isCustom
-                ? `Aktif Liste: ${emails.length} Vekil (TBMM Canlı Aktarım)`
-                : `Aktif Liste: ${emails.length} Vekil (Tam TBMM Havuzu)`;
 
             renderBatches(batches);
             updateProgressBadge(batches.length);
@@ -737,7 +657,14 @@ ${signatureLine}`;
                             <button type="button" onclick="copyBatchEmails(${batch.id})"
                                class="inline-flex items-center justify-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-slate-200 transition"
                                title="Bu gruptaki tüm e-posta adreslerini kopyala">
-                                <span>Adresleri Kopyala</span>
+                                <span>BCC Adreslerini Kopyala</span>
+                            </button>
+
+                            <!-- Metni Kopyala -->
+                            <button type="button" onclick="copyText('fullBody')"
+                               class="inline-flex items-center justify-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-slate-200 transition"
+                               title="Dilekçe metnini panoya kopyala">
+                                <span>Metni Kopyala</span>
                             </button>
 
                             <!-- Durum Checkbox -->
@@ -753,110 +680,6 @@ ${signatureLine}`;
             }).join('');
         }
 
-        // Kopyalama Yardımcıları
-        function copyBatchEmails(batchId) {
-            const { emails } = getActiveEmails();
-            const batches = buildDynamicBatches(emails, 80);
-            const batch = batches.find(b => b.id === batchId);
-            if (batch) {
-                copyToClipboard(batch.emails, `${batch.id}. Grup (${batch.count} vekil adresi) panoya kopyalandı!`);
-            }
-        }
-
-        function toggleBatchStatus(batchId) {
-            if (sentBatches.includes(batchId)) {
-                sentBatches = sentBatches.filter(id => id !== batchId);
-            } else {
-                sentBatches.push(batchId);
-            }
-            localStorage.setItem('fon_sent_batches', JSON.stringify(sentBatches));
-            updateProgressBadge();
-            renderBatches();
-        }
-
-        function resetProgress() {
-            sentBatches = [];
-            localStorage.removeItem('fon_sent_batches');
-            updateProgressBadge();
-            renderBatches();
-            showToast("Gönderim ilerlemesi sıfırlandı.");
-        }
-
-        function updateProgressBadge() {
-            progressBadge.textContent = `${sentBatches.length} / ${MP_BATCHES.length} Grup`;
-            if (sentBatches.length === MP_BATCHES.length) {
-                progressBadge.classList.remove('text-navy-900');
-                progressBadge.classList.add('text-emerald-600');
-            } else {
-                progressBadge.classList.add('text-navy-900');
-                progressBadge.classList.remove('text-emerald-600');
-            }
-        }
-
-        // Grup Kartlarını Render Et
-        function renderBatches() {
-            const { subject, fullBody, shortBody } = getEmailContent();
-            const encodedSubject = encodeURIComponent(subject);
-            const encodedShortBody = encodeURIComponent(shortBody);
-            const encodedFullBody = encodeURIComponent(fullBody);
-
-            batchesContainer.innerHTML = MP_BATCHES.map(batch => {
-                const emailCount = batch.emails.split(',').length;
-                const isSent = sentBatches.includes(batch.id);
-                const encodedBcc = encodeURIComponent(batch.emails);
-
-        // Aktif E-posta Listesini Yükle (Dahili 550+ TBMM Havuzu)
-        function getActiveEmails() {
-            return normalizeEmailList(DEFAULT_MP_EMAILS);
-        }
-
-        // E-posta dizisini 80'er kişilik güvenli BCC gruplarına böl
-// ... existing code ... -->
-        const progressBadge = document.getElementById('progressBadge');
-        const progressBarFill = document.getElementById('progressBarFill');
-        const step2Heading = document.getElementById('step2Heading');
-        const heroTargetCount = document.getElementById('heroTargetCount');
-        const heroBatchInfo = document.getElementById('heroBatchInfo');
-
-        // Toast Bildirim Gösterici
-        let toastTimeout;
-// ... existing code ... -->
-        // Önizlemeyi ve Buton Linklerini Güncelle
-        function updateUI() {
-            const { subject, fullBody } = getEmailContent();
-            previewSubjectEl.textContent = subject;
-            previewFullBodyEl.textContent = fullBody;
-
-            const emails = getActiveEmails();
-            const batches = buildDynamicBatches(emails, 80);
-
-            // Üst rozet ve sayaçları güncelle
-            heroTargetCount.textContent = `${emails.length} Vekil`;
-            heroBatchInfo.textContent = `${batches.length} Güvenli Gönderim Grubu`;
-            step2Heading.textContent = `${batches.length} Grup Halinde ${emails.length} Milletvekiline Gönder`;
-
-            renderBatches(batches);
-            updateProgressBadge(batches.length);
-        }
-
-        // Gönderim İşaretleyici
-// ... existing code ... -->
-                            <!-- Adresleri Kopyala (Yedek) -->
-                            <button type="button" onclick="copyBatchEmails(${batch.id})"
-                               class="inline-flex items-center justify-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-slate-200 transition"
-                               title="Bu gruptaki tüm e-posta adreslerini kopyala">
-                                <span>BCC Adreslerini Kopyala</span>
-                            </button>
-
-                            <!-- Metni Kopyala -->
-                            <button type="button" onclick="copyText('fullBody')"
-                               class="inline-flex items-center justify-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-slate-200 transition"
-                               title="Dilekçe metnini panoya kopyala">
-                                <span>Metni Kopyala</span>
-                            </button>
-
-                            <!-- Durum Checkbox -->
-// ... existing code ... -->
         // Kopyalama Yardımcıları
         function copyBatchEmails(batchId) {
             const emails = getActiveEmails();
@@ -892,28 +715,44 @@ ${signatureLine}`;
             copyToClipboard(window.location.href, "Kampanya sayfa bağlantısı kopyalandı!");
         }
 
-        // Açılır Paneller (Önizleme & Yayınlama Rehberi)
-        document.getElementById('togglePreviewBtn').addEventListener('click', () => {
-            const container = document.getElementById('previewContainer');
-            const chevron = document.getElementById('previewChevron');
-            container.classList.toggle('hidden');
-            chevron.classList.toggle('rotate-180');
-        });
+        // Önizleme Aç/Kapa Paneli (Mobil ve Masaüstü Uyumlu)
+        const togglePreviewBtn = document.getElementById('togglePreviewBtn');
+        const previewContainer = document.getElementById('previewContainer');
+        const previewChevron = document.getElementById('previewChevron');
+        const togglePreviewLabel = document.getElementById('togglePreviewLabel');
 
-        document.getElementById('toggleDeployBtn').addEventListener('click', () => {
-            const container = document.getElementById('deployContainer');
-            const chevron = document.getElementById('deployChevron');
-            container.classList.toggle('hidden');
-            chevron.classList.toggle('rotate-180');
-        });
+        if (togglePreviewBtn && previewContainer) {
+            togglePreviewBtn.addEventListener('click', function () {
+                const isCurrentlyHidden = previewContainer.style.display === 'none' || previewContainer.classList.contains('hidden');
+                if (isCurrentlyHidden) {
+                    previewContainer.classList.remove('hidden');
+                    previewContainer.style.display = 'block';
+                    togglePreviewBtn.setAttribute('aria-expanded', 'true');
+                    if (previewChevron) previewChevron.classList.add('rotate-180');
+                    if (togglePreviewLabel) togglePreviewLabel.textContent = 'E-Posta Önizlemesini Gizle';
+                } else {
+                    previewContainer.style.display = 'none';
+                    togglePreviewBtn.setAttribute('aria-expanded', 'false');
+                    if (previewChevron) previewChevron.classList.remove('rotate-180');
+                    if (togglePreviewLabel) togglePreviewLabel.textContent = 'Gönderilecek E-Posta Metnini Önizle & Kopyala';
+                }
+            });
+        }
 
         // Input Dinleyicileri
         [userNameInput, userCityInput, userFundDetailInput].forEach(el => {
-            el.addEventListener('input', updateUI);
+            if (el) {
+                el.addEventListener('input', updateUI);
+            }
         });
 
         // Sayfa Yüklendiğinde Başlat
-        window.addEventListener('DOMContentLoaded', updateUI);
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', updateUI);
+        } else {
+            updateUI();
+        }
     </script>
 </body>
 </html>
+```
